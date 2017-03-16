@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -111,7 +111,7 @@
 <td>Cliente</td>
 <td>Municipio residencia </td>
 <td>Municipio negocio</td>
-<td>Fecha de nacimiento</td>
+<td>Fecha de nacimiento0</td>
 <td>Estado</td>
 </tr>
 </table>
