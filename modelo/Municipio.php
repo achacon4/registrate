@@ -1,5 +1,5 @@
 <?php
-namespace modelo;
+namespace modelo; 
 require_once '../entidad/Municipio.php';
 require_once '../entorno/Conexion.php';
 
