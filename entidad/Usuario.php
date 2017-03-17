@@ -3,7 +3,7 @@ namespace entidad;
  class Usuario{
      private $idUsuario;
      private $usuario;
-     private $contraseña;
+     private $contrasena;
      private $idDatosPersonales;  
      
      function getIdUsuario() {
@@ -14,8 +14,8 @@ namespace entidad;
          return $this->usuario;
      }
 
-     function getContraseña() {
-         return $this->contraseña;
+     function getContrasena() {
+         return $this->contrasena;
      }
 
      function getIdDatosPersonales() {
@@ -30,13 +30,15 @@ namespace entidad;
          $this->usuario = $usuario;
      }
 
-     function setContraseña($contraseña) {
-         $this->contraseña = $contraseña;
+     function setContrasena($contrasena) {
+         $this->contrasena = $contrasena;
      }
 
      function setIdDatosPersonales($idDatosPersonales) {
          $this->idDatosPersonales = $idDatosPersonales;
      }
+
+
 
     
  }
