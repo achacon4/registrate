@@ -34,7 +34,7 @@ class Categoria
 		}
 	}
 
-
+//
 	public function insertarCategoria($nomCategoria){
 		$this->nombreCategoria = $nomCategoria;
 		try{
