@@ -51,12 +51,6 @@
 <div class="tdTexto">Telefono:</div>
 <div class="td"><input name="txtTelefono" type="text" id="txtTelefono" class="form-control tamanioTexto"></div>
 </div>
-<div class="tr">
-<div class="tdTexto">Estado:</div>
-<div class="td"><select name="selEstado" id="selEstado" class="form-control tamanioTexto">
-<option value="">-SELECCIONE--</option>
-</select></div>
-</div>
 </section>
 <br>
 <nav>
