@@ -1,4 +1,7 @@
 <?php
+require_once '../modelo/DatosPersonales.php';
+
+$retorno = array("exito"=>1,"mensaje"=>"");
 
 try{
     $nombre = filter_input(INPUT_POST, 'aaa');
@@ -20,6 +23,10 @@ try{
     $datosPersonalesE->setTelefono($telefono);
     $datosPersonalesE->setEstado($estado);
     
+    $datosPersonalesM = new \modelo\DatosPersonales($datosPersonalesE, null);
+    
+    $datosPersonalesM->conexion->iniciarTransaccion();
+    $datosPersonalesM->adicionar();
     
     
 } catch (Exception $ex) {
