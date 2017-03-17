@@ -1,6 +1,6 @@
 <?php
 namespace entidad;
-require_once '../entidad/DatosPersonales.php';
+
 
 class DatosPersonales{
     private $idDatosPersonales;
