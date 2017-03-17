@@ -52,7 +52,7 @@
                     <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-default">
                 </nav>
                 <section id="secListado">
-                    <table id="tblListado" class="table">
+                    <table id="tblListado" class="table table-condensed">
                         <tr>
                             <td>Nombre del Lugar</td>
                             <td>Disponibilidad</td>
