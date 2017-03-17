@@ -16,13 +16,13 @@
         </header>
         <section id="secPrincipal">
             <form name="frmPrincipal" id="frmPrincipal" action="" method="POST">
-                <input name="hidIdCliente" id="hidIdCliente" type="hidden">
+                <input name="hidIdLugar" id="hidIdLugar" type="hidden">
                 <section id="secFormulario">
                     <div class="table">
                         <div class="tr">
                             <div class="tdTexto">Nombre del Lugar</div>
                             <div class="td">
-                                <input name="txtNombre" type="text" id="txtNonbre" class="form-control tamanioTexto"></div>
+                                <input name="txtNombre" type="text" id="txtNombre" class="form-control tamanioTexto"></div>
                         </div>
                         <div class="tr">
                             <div class="tdTexto">Disponibilidad</div>
