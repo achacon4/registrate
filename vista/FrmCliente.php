@@ -20,7 +20,7 @@
 <section id="secFormulario">
 <div class="table">
 <div class="tr">
-<div class="tdTexto">Número identificación </div>
+<div class="tdTexto">Número identificaci0n </div>
 <div class="td">
 <input name="txtNumeroIdentificacion" type="text" id="txtNumeroIdentificacion" class="form-control tamanioTexto"></div>
 </div>
