@@ -5,7 +5,7 @@
         <title>Registro Asistente</title>
         <script src="../jquery/jquery.js" type="text/javascript"></script>
         <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
-        <script src="../js/FrmDatosPersonales.js" type="text/javascript"></script>
+        <script src="../js/FrmRegistroAsistente.js.js" type="text/javascript"></script>
         <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     </head>
