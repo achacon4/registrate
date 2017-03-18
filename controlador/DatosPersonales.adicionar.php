@@ -1,14 +1,16 @@
 <?php
+ require_once '../modelo/DatosPersonales';
+$retorno = array("exito"=>1,"mensaje"=>"");
 
 try{
-    $nombre = filter_input(INPUT_POST, 'aaa');
-    $apaterno = filter_input(INPUT_POST, 'aaa');
-    $amaterno = filter_input(INPUT_POST, 'aaa');
-    $tipoDocumento = filter_input(INPUT_POST, 'aaa');
-    $numeroDocumento = filter_input(INPUT_POST, 'aaa');
-    $email = filter_input(INPUT_POST, 'aaaa');
-    $telefono = filter_input(INPUT_POST, 'aaa');
-    $estado = filter_input(INPUT_POST, 'aaa');
+    $nombre = filter_input(INPUT_POST, 'txtNombre');
+    $apaterno = filter_input(INPUT_POST, 'txtApaterno');
+    $amaterno = filter_input(INPUT_POST, 'txtAmaterno');
+    $tipoDocumento = filter_input(INPUT_POST, 'selTipoDocumento');
+    $numeroDocumento = filter_input(INPUT_POST, 'txtNumeroDocumento');
+    $email = filter_input(INPUT_POST, 'txtEmail');
+    $telefono = filter_input(INPUT_POST, 'txtTelefono');
+//    $estado = filter_input(INPUT_POST, 'aaa');
     
     $datosPersonalesE = new \entidad\DatosPersonales();
     $datosPersonalesE->setNombre($nombre);
@@ -18,8 +20,12 @@ try{
     $datosPersonalesE->setNumeroDocumento($numeroDocumento);
     $datosPersonalesE->setEmail($email);
     $datosPersonalesE->setTelefono($telefono);
-    $datosPersonalesE->setEstado($estado);
+    $datosPersonalesE->setEstado('A');
     
+    $datosPersonalesM = new \modelo\DatosPersonales($datosPersonalesE, null);
+    
+    $datosPersonalesM->conexion->iniciarTransaccion();
+    $datosPersonalesM->adicionar();
     
     
 } catch (Exception $ex) {
