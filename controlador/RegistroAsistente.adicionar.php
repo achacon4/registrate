@@ -34,7 +34,7 @@ $retorno = array("exito"=>1,"mensaje"=>"","data"=>"");
         $clienteM = new \modelo\RegistroAsistente(clienteE);
         $clienteM->adicionar();
 
-        $retorno['mensaje'] = 'Se adicionó correctamente el asistente';
+        $retorno['mensaje'] = 'Registro exitoso';
         
 
     }catch(Exception $error)
