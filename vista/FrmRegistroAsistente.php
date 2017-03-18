@@ -16,6 +16,8 @@
                 <h4 class="text-center" ><b>Registr@-TE</b></h4>
                 <form name ="frmPrincipal" id="frmPrincipal"  action="" method="POST" class="form-horizontal" >
                     <section id="secFormulario" class="panel-body">
+                        <input name="idAsistenteEvento" id="idAsistenteEvento" type="hidden">
+                        <input name="idEventoFK" id="idEventoFK" type="hidden" >
                         <div class="form-group has-success has-feedback">
                             <label for="inputSuccess3"  class="control-label col-sm-2">Nombre:</label>
                             <div class="col-sm-9">
