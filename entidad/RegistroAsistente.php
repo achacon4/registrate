@@ -1,6 +1,6 @@
 <?php
 
-class ResgistroAsistente{
+class RegistroAsistente{
     private $idAsistenteEvento;
     private $idEventoFK;
     private $nombre;
