@@ -1,6 +1,6 @@
 <?php
 
-class VerificacionAsistente{
+class ResgistroAsistente{
     private $idAsistenteEvento;
     private $idEventoFK;
     private $nombre;
