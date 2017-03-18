@@ -52,7 +52,7 @@ class RegistroAsistente{
         $this->idAsistenteEvento = $idAsistenteEvento;
     }
 
-    function setIdEventoFK($idEventoFK) {
+    function setIdEventoFK(\entidad\Evento $idEventoFK) {
         $this->idEventoFK = $idEventoFK;
     }
 
