@@ -8,7 +8,7 @@ $retorno = array("exito"=>1,"mensaje"=>"","data"=>"");
     {
         
         $idAsistenteEvento = $_POST['idAsistenteEvento'];
-        $idEventoFK = $_POST['txtEvento'];
+        $idEventoFK = $_POST['idEvento'];
         $nombre= $_POST['txtNombre'];
         $apaterno = $_POST['txtApaterno'];
         $amaterno= $_POST['txtAmaterno'];
