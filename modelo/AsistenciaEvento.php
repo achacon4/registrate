@@ -1,8 +1,8 @@
 <?php
 
 namespace modelo;
+require_once '../entorno/Conexion.php';
 require_once '../entidad/AsistenciaEvento.php';
-require_once '../modelo/Evento.php';
 require_once '../modelo/VerificacionAsistentes.php';
 
 class AsistenciaEvento{

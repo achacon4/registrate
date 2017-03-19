@@ -12,6 +12,7 @@ class DatosPersonales{
     private $email;
     private $telefono;
     private $estado;
+    
     function getIdDatosPersonales() {
         return $this->idDatosPersonales;
     }

@@ -2,7 +2,7 @@
 
 namespace entidad;
 require_once '../entidad/VerificacionAsistentes.php';
-require_once '../entidad/Evento.php';
+require_once '../modelo/Evento.php';
 
 class AsistenciaEvento{
     
