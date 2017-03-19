@@ -2,7 +2,10 @@
 require_once '../entidad/DatosPersonales.php';
 require_once '../entorno/Conexion.php';
 class DatosPersonales{
-     private $idDatosPersonales;
+    
+    public $conexion;
+    
+    private $idDatosPersonales;
     private $nombre;
     private $apaterno;
     private $amaterno;
@@ -11,6 +14,8 @@ class DatosPersonales{
     private $email;
     private $telefono;
     private $estado;
+    
+    
      function __construct(\entidad\DatosPersonales $datosPersonales, $conexion = null) {
         $this->idDatosPersonales = $datosPersonales->getIdDatosPersonales();
         $this->nombre = $datosPersonales->getNombre();
