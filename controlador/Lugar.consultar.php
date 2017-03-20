@@ -1,5 +1,6 @@
 <?php
 require_once '../modelo/Lugar.php'; 
+require_once '../entidad/Lugar.php';
 
 $retorno = array("exito"=>1,"mensaje"=>"", "data"=>array("lugares"=>array()));
 try {
@@ -18,12 +19,14 @@ try {
 	        $entidadE-> setPresupuesto ($presupuesto);
 	        $entidadE-> setCantidadPersonas ($cantidadPersonas);
                 
+           $entidadM = new \modelo\Lugar($entidadE, null);       
            $entidadM->consultar();
            $numeroRegistros = $entidadM->conexion->obtenerNumeroRegistros();
            $retorno['data']['numeroRegistros'] = $numeroRegistros;
+           $contador = 0;
            
            while($fila = $entidadM->conexion->obtenerObjeto()){
-                $retorno['data']['lugares'][$contador]['idLugar']=$fila->idLugar; 
+              $retorno['data']['lugares'][$contador]['idLugar']=$fila->idLugar; 
               $retorno['data']['lugares'][$contador]['nombre']=$fila->nombre;
               $retorno['data']['lugares'][$contador]['disponibilidad']=$fila->disponibilidad; 
               $retorno['data']['lugares'][$contador]['descripcion']=$fila->descripcion;
