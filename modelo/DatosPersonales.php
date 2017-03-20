@@ -1,4 +1,5 @@
 <?php
+namespace modelo;
 require_once '../entidad/DatosPersonales.php';
 require_once '../entorno/Conexion.php';
 class DatosPersonales{
