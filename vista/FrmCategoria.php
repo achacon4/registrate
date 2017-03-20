@@ -5,7 +5,6 @@
 <title></title>
 <script src="../jquery/jquery.js" type="text/javascript"></script>
 <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
-<script src="../js/FrmCliente.js" type="text/javascript"></script>
 <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
 <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 <link type="text/css" rel="stylesheet" href="../css/FrmCliente.css">
@@ -19,7 +18,7 @@
     <input name="hidIdCategoria" id="hidIdCategoria" type="hidden">
     <input name="hidAccion" id="hidAccion" type="hidden">
     <section id="secFormulario">
-        
+        <input type="hidden" name="idCategoria" id="idCategoria">
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -49,5 +48,6 @@
     </section>
     </form>
 </section>
+<script src="../js/categoria.js" type="text/javascript"></script>
 </body>
 </html>

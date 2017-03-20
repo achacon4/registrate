@@ -7,7 +7,7 @@ $categoriaModelo = new CategoriaModel();
 $accion = $_POST['accion'];
 switch ($accion) {
     case "ADICIONAR":
-                $categoria->setNombreCategoria($_POST["nombreCategoria"]);    
+                $categoria->setNombreCategoria($_POST["nombre"]);    
                 $objeto[] = array(
                         "categoria"=>$categoria->getNombreCategoria()
                     );
@@ -34,10 +34,3 @@ switch ($accion) {
         break;
 } 
 
-//{
-//    var accion = "adicionar";
-//    var nombre = $(#txtNombre).val();
-//    var json = {"accion":accion,"txtNombreCategoria":nombre};
-//    data : json;
-//            
-//}
