@@ -36,6 +36,7 @@
 <div class="tdTexto">TipoDocumento:</div>
 <div class="td"><select name="selTipoDocumento" id="selTipoDocumento" class="form-control tamanioTexto">
 <option value="">-SELECCIONE--</option>
+<option >T.I</option>
 </select></div>
 </div>
 </div>

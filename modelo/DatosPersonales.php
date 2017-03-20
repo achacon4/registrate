@@ -50,10 +50,10 @@ class DatosPersonales{
                         )
                         VALUES
                         (
-                            ".$this->nombre."
+                            '$this->nombre'
                             ,'$this->apaterno'
-                            ,".$this->amaterno."
-                            ,".$this->tipoDocumento."
+                            ,'$this->amaterno'
+                            ,'$this->tipoDocumento'
                             ,'$this->numeroDocumento'
                             ,'$this->email'
                             ,'$this->telefono'
