@@ -109,9 +109,9 @@ class Evento
     function consultar(){
         $sentenciaSql= "SELECT 
                             e.*
-                            , l.lugar AS lugarFK
-                            , dp.datospersonales AS datosPersonalesFK
-                            , c.categoria AS categoriaFK
+                            , l.nombre AS lugarFK
+                            , dp.nombre AS datosPersonalesFK
+                            , c.nombreCategoria AS categoriaFK
                         FROM 
                             evento AS e
                             INNER JOIN lugar AS l ON e.idLugarFK = l.idLugar
