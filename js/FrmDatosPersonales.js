@@ -29,11 +29,42 @@ $(function (){
 
 function validarVacios(){
         if(document.getElementById("txtNombre").value ===''){
-            alert("Debe digitar el nom");
+            alert("Debe digitar el nombre");
             document.getElementById("txtNombre").focus();
             return false;  
         };
-         
+        
+        if(document.getElementById("txtApaterno").value ===''){
+            alert("Debe digitar el primer apellido");
+            document.getElementById("txtApaterno").focus();
+            return false;  
+        };
+        if(document.getElementById("txtAmaterno").value ===''){
+            alert("Debe digitar el segundo apellido");
+            document.getElementById("txtAmaterno").focus();
+            return false;  
+        };
+       var indiceFormulario = document.getElementById("selTipoDocumento").selectedIndex;
+        if(indiceFormulario === null || indiceFormulario === 0){
+           alert("Debe seleccionar el tipo de docuemnto"); 
+           document.getElementById("selTipoDocumento").focus();
+           return false;
+        };
+        if(document.getElementById("txtNumeroDocumento").value ===''){
+            alert("Debe digitar el número de identificación");
+            document.getElementById("txtNumeroDocumento").focus();
+            return false;  
+        };
+        if(document.getElementById("txtEmail").value ===''){
+            alert("Debe digitar el email");
+            document.getElementById("txtEmail").focus();
+            return false;  
+        };
+        if(document.getElementById("txtTelefono").value ===''){
+            alert("Debe digitar el telefono");
+            document.getElementById("txtTelefono").focus();
+            return false;  
+        };    
         return true;
     };
 
