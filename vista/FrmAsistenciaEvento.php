@@ -23,14 +23,11 @@
                 <table class="table table-striped">
                     <tr>
                         <td>
-                               
-                                <input type="hidden" name="selEvento" id="selEvento">
-                                 Nombre del Evento:<input type="text" name="txtEvento" id="txtEvento" class="form-control" placeholder="Nombre del Evento">
+                            <input type="hidden" name="selEvento" id="selEvento">
+                            Nombre del Evento:<input type="text" name="txtEvento" id="txtEvento" class="form-control" placeholder="Nombre del Evento">
                         </td>
                         <td>
-                          
-                                <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR ASITENTES</button>
-                   
+                            <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR ASITENTES</button>
                         </td>
                     </tr>
                 </table>
@@ -38,7 +35,7 @@
                     <table id="listadoAsistentes" class="table table-striped">
                         <tr>
                             <td>
-                                Nombre 
+                                Nombre
                             </td>
                             <td>
                                 Primer Apellido
@@ -53,12 +50,15 @@
                                 Número de Documento
                             </td>
                             <td>
-                                Telefono
+                                Teléfono
                             </td>
                         </tr>
                     </table>
                 </div>
-                
+                <div>
+                    <center>
+                        <button type="button" name="btnGuardarAsistencia" id="btnGuardarAsistencia" class="btn btn-default btn-lg active">GUARDAR ASISTENCIA</button>
+                    </center>
             </form>
         </section>
     </body>

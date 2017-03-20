@@ -130,4 +130,21 @@ class Evento
                         $limite";
         $this->conexion->ejecutar($sentenciaSql);
     }
+    
+    function consultarAsistentes(){
+        $sentenciaSql = "SELECT 
+                            idAsistenteEvento
+                            , nombre
+                            , apaterno
+                            , amaterno
+                            , tipoDocumento
+                            , numeroDocumento
+                            , telefono
+                        FROM
+                            asistenteEvento
+                        WHERE 
+                            idEventoFK = 1
+                        ";
+        $this->conexion->ejecutar($sentenciaSql);     
+    }
 }
