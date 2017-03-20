@@ -4,8 +4,8 @@ require_once '../entidad/Lugar.php';
 
 $retorno = array("exito"=>1,"mensaje"=>"", "data"=>array("lugares"=>array()));
 try {
-           $idLugar = filter_input(INPUT_POST, 'idLugar');
-           $nombre = filter_input(INPUT_POST, 'txtNombre');
+          $idLugar = filter_input(INPUT_POST, 'idLugar');
+          $nombre = filter_input(INPUT_POST, 'txtNombre');
 	  $disponiblilidad = filter_input (INPUT_POST, 'selDisponibilidad');
 	  $descripcion = filter_input (INPUT_POST, 'txtDescripcion');
 	  $presupuesto = filter_input (INPUT_POST, 'txtPresupuesto');
@@ -14,7 +14,7 @@ try {
            $entidadE= new \entidad\Lugar();
                 $entidadE->setIdLugar($idLugar);
 	        $entidadE-> setNombre ($nombre);
-	        $entidadE-> setDisponibilidad ($disponibilidad);
+	        $entidadE-> setDisponibilidad ($disponiblilidad);
 	        $entidadE-> setDescripcion ($descripcion);
 	        $entidadE-> setPresupuesto ($presupuesto);
 	        $entidadE-> setCantidadPersonas ($cantidadPersonas);

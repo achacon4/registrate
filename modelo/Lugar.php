@@ -52,17 +52,18 @@ Class Lugar {
                 $this->conexion->ejecutar($sentenciaSql);
     }
 
-    function modificar() {
-        $sentenciaSql = "UPDATE 
+    function modificar(){
+        $sentenciaSql= "UPDATE
                             lugar
                         SET
-                            nombre=" . $this->nombre . "
-                            disponibilidad='$this->disponibilidad'
-                            descripcion='$this->descripcion'
-                            presupuesto='$this->presupuesto'
-                            cantidadPersonas='$this->cantidadPersonas'
+                            nombre=".$this->nombre."
+                            ,disponibilidad='$this->disponibilidad'
+                            ,descripcion='$this->descripcion' 
+                            ,presupuesto='$this->presupuesto'
+                            ,cantidadPersonas='$this->cantidadPersonas'
+
                         WHERE
-                            idLugar='$this->idLugar'
+                            idLugar = $this->idLugar
                         ";
         $this->conexion->ejecutar($sentenciaSql);
     }
