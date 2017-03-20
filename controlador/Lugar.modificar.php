@@ -17,6 +17,8 @@ try {
        $entidadE-> setPresupuesto ($presupuesto);
        $entidadE-> setCantidadPersonas ($cantidadPersonas);
        
+       $entidadM = new \modelo\Lugar($entidadE, null);
+       
         $entidadM->conexion->iniciarTransaccion();
         $entidadM->conexion->confirmarTransaccion();
         $retorno['mensaje']='Se modifico Correctamente';

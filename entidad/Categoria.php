@@ -3,7 +3,7 @@
 
 namespace entidad;
 
-class Categoria {
+class CategoriaEntidad {
     private $idCategoria;
     private $nombreCategoria;
 }
