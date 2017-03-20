@@ -9,7 +9,7 @@ switch ($accion) {
     case "ADICIONAR":
                 $categoria->setNombreCategoria($_POST["nombreCategoria"]);    
                 $objeto[] = array(
-                        "categoria"=>$categoria->getNombreCategoria();
+                        "categoria"=>$categoria->getNombreCategoria()
                     );
                 if(count($objeto)>0){
                     $categoriaModelo->insertarCategoria($objeto);
@@ -21,14 +21,14 @@ switch ($accion) {
     case "MODIFICAR" :   
                 $categoria->setIdCategoria($_POST["idCategoria"]);    
                 $objeto[] = array(
-                        "categoria"=>$categoria->getNombreCategoria();
+                        "categoria"=>$categoria->getNombreCategoria()
                     );
                  $categoriaModelo->actualizarCategoria($objeto);
         break;
     case "ELIMINAR":
                 $categoria->setIdCategoria($_POST["idCategoria"]);    
                 $objeto[] = array(
-                        "categoria"=>$categoria->getNombreCategoria();
+                        "categoria"=>$categoria->getNombreCategoria()
                     );
                  $categoriaModelo->eliminarCategoria($objeto);
         break;
