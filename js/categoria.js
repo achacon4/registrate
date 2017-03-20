@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	            $('#btnAdicionar').click(function () {
-                 var accion = "accion";
+                 var accion = "ADICIONAR";
                  var nombre = $("#txtNombreCategoria").val();
                  var datos = {"accion":accion,"nombre":nombre};
                      $.ajax({

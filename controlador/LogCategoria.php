@@ -4,9 +4,10 @@ require_once '../entidad/Categoria.php';
 require_once '../modelo/CategoriaModelo.php';
 $categoria = new CategoriaEntidad();
 $categoriaModelo = new CategoriaModel(); 
-$accion = $_POST['accion'];
+$accion = $_POST["accion"];
 switch ($accion) {
     case "ADICIONAR":
+    echo "Entro y el nombre de la categoria es: ".$_POST["nombre"];
                 $categoria->setNombreCategoria($_POST["nombre"]);    
                 $objeto[] = array(
                         "categoria"=>$categoria->getNombreCategoria()
