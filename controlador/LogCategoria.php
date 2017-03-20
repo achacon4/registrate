@@ -20,18 +20,25 @@ switch ($accion) {
                  $categoriaModelo->consultarCategoria();
         break;
     case "MODIFICAR" :   
-                $categoria->setIdCategoria($_POST["idCategoria"]);    
+                $categoria->setIdCategoria($_POST["categoria"]); 
+                $categoria->setNombreCategoria($_POST["nombre"]);
                 $objeto[] = array(
-                        "categoria"=>$categoria->getNombreCategoria()
+                        "categoria"=>$categoria->getIdCategoria(),
+                        "nombreCategoria"=>$categoria->getNombreCategoria()
                     );
                  $categoriaModelo->actualizarCategoria($objeto);
         break;
     case "ELIMINAR":
-                $categoria->setIdCategoria($_POST["idCategoria"]);    
+                $categoria->setIdCategoria($_POST["categoria"]);    
                 $objeto[] = array(
-                        "categoria"=>$categoria->getNombreCategoria()
+                        "categoria"=>$categoria->getIdCategoria()
                     );
+               
                  $categoriaModelo->eliminarCategoria($objeto);
+        break;
+    case "CONSULTARID":
+        $id = $_POST["id"];
+        $categoriaModelo->consultarId($id);
         break;
 } 
 

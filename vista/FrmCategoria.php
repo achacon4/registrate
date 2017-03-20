@@ -38,15 +38,8 @@
        <input name="btnLimpiar" type="button" id="btnLimpiar" value="ELIMINAR" class="btn btn-default">
     </nav>
 
-    <section id="secListado">
-          <table id="tblListado" class="table">
-              <tr>
-                 <td>Número de Categoria</td>
-                 <td>Nombre de Categoria</td>
-              </tr>
-          </table>
-    </section>
     </form>
+    <div name="resultado" id="resultado"></div>
 </section>
 <script src="../js/categoria.js" type="text/javascript"></script>
 </body>
