@@ -1,34 +1,37 @@
 <?php
 
 require_once '../entidad/Categoria.php';
-
-$accion = INPUT_POST['accion'];
+require_once '../modelo/CategoriaModelo.php';
+$categoria = new CategoriaEntidad();
+$categoriaModelo = new CategoriaModel(); 
+$accion = $_POST['accion'];
 switch ($accion) {
     case "ADICIONAR":
-        $nombreCategoria = INPUT_POST['txtNombreCategoria'];
-
-        try {
-            $categoriaE = new \entidad\Categoria();
-            $categoriaE->setNombreCategoria($nombreCategoria);
-
-            echo '<br>Se adicion� correctamente un nuevo cliente.';
-        } catch (Exception $error) {
-            echo $error->getMessage();
-        }
+                $categoria->setNombreCategoria($_POST["nombreCategoria"]);    
+                $objeto[] = array(
+                        "categoria"=>$categoria->getNombreCategoria();
+                    );
+                if(count($objeto)>0){
+                    $categoriaModelo->insertarCategoria($objeto);
+                } 
         break;
-
     case "CONSULTAR" :
-        $idCategoria = filter_input(INPUT_POST, 'hidIdCategoria');
-        $nombreCategoria = filter_input(INPUT_POST, 'txtNombreCategoria');
-        try {
-            $categoriaE = new \entidad\Categoria();
-            $categoriaE->setIdCategoria($idCategoria);
-            $categoriaE->setNombreCategoria($nombreCategoria);
-        } catch (Exception $ex) {
-            
-        } 
-    case "MODIFICAR" : 
-        
+                 $categoriaModelo->consultarCategoria();
+        break;
+    case "MODIFICAR" :   
+                $categoria->setIdCategoria($_POST["idCategoria"]);    
+                $objeto[] = array(
+                        "categoria"=>$categoria->getNombreCategoria();
+                    );
+                 $categoriaModelo->actualizarCategoria($objeto);
+        break;
+    case "ELIMINAR":
+                $categoria->setIdCategoria($_POST["idCategoria"]);    
+                $objeto[] = array(
+                        "categoria"=>$categoria->getNombreCategoria();
+                    );
+                 $categoriaModelo->eliminarCategoria($objeto);
+        break;
 } 
 
 //{

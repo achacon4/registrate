@@ -2,7 +2,7 @@
 
 require_once("../entorno/conexion.php");
 
-class Categoria
+class CategoriaModel
 {
 	private $conexion;
 	private $idCategoria;
