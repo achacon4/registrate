@@ -111,7 +111,7 @@ function crearListado(Lugares){
                         <td>Cantidad Personas</td> \n\
                        ';
     $.each(Lugares, function (indice, lugar){
-                  listado = listado+'<tr><td>'+lugar.nombre+'</td><td><a href="#" onclick="seleccionarRegistro('+lugar.idLugar+')">'+lugar.nombre+'</a></td><td>'
+                  listado = listado+'<tr></td><td><a href="#" onclick="seleccionarRegistro('+lugar.idLugar+')">'+lugar.nombre+'</a></td><td>'
                                               +lugar.disponibilidad+'</td><td>'
                                               +lugar.descripcion+'</td><td>'
                                               +lugar.presupuesto+'</td><td>'
@@ -124,7 +124,7 @@ function crearListado(Lugares){
 }
 function seleccionarRegistro(idLugar){
     limpiar();
-    $("#hidId¿Lugar").val(idLugar);
+    $("#hidIdLugar").val(idLugar);
     $("#btnConsultar").trigger( "click" );
     
 }
