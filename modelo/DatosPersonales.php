@@ -35,7 +35,7 @@ class DatosPersonales{
          }
      }
       function adicionar(){
-        $sentenciaSql= "INSERT INTO
+         $sentenciaSql= "INSERT INTO
                             datospersonales
                         (
                             nombre
