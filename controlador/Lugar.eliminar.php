@@ -6,9 +6,9 @@ $retorno=array("exito"=>1,"mensaje"=>"","data"=>array());
 try {
                $idLugar =filter_input(INPUT_POST, 'hidIdLugar');
     
-                $entidadE = new \entidad\Cliente();
-                $entidadE->setIdCliente($idCliente);
-                $entidadM = new \modelo\Cliente($entidadM);
+                $entidadE = new \entidad\Lugar();
+                $entidadE->setIdLugar($idLugar);
+                $entidadM = new \modelo\Lugar($entidadE);
                 $entidadM->eliminar();
    
     $retorno['mensaje']='Se elimino corecctamente';

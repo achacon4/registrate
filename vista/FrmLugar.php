@@ -26,9 +26,13 @@
                         </div>
                         <div class="tr">
                             <div class="tdTexto">Disponibilidad</div>
-                            <div class="td"><select name="selDisponibilidad" id="selDisponibilidad" class="form-control tamanioTexto">
-                                    <option value="">-SELECCIONE--</option>
-                                </select></div>
+                            <div class="td">
+                                <select name="selDisponibilidad" id="selDisponibilidad" class="form-control" aria-describedby="inputSuccess3Status">
+                                    <option value="">--SELECCIONE--</option>
+                                    <option value="DISPONIBLE">Disponible</option>
+                                    <option value="OCUPADO">Ocupado</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="tr">
                             <div class="tdTexto">Descripción</div>
@@ -43,25 +47,25 @@
                             <div class="td"><input name="txtCantidadPersonas" type="date" id="txtCantidadPersonas" class="form-control tamanioTexto"></div>
                         </div>                        
                     </div>
-                <br>
-                <nav>
-                    <input name="btnAdicionar" type="button" id="btnAdicionar" value="ADICIONAR" class="btn btn-danger">
-                    <input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
-                    <input name="btnConsultar" type="button" id="btnConsultar" value="CONSULTAR" class="btn btn-default">
-                    <input name="btnEliminar" type="button" id="btnEliminar" value="ELIMINAR" class="btn btn-default">
-                    <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-default">
-                </nav>
-                <section id="secListado">
-                    <table id="tblListado" class="table table-condensed">
-                        <tr>
-                            <td>Nombre del Lugar</td>
-                            <td>Disponibilidad</td>
-                            <td>Descripción</td>
-                            <td>Presupuesto</td>
-                            <td>Cantidad de Personas</td>
-                        </tr>
-                    </table>
-                </section>
+                    <br>
+                    <nav>
+                        <input name="btnAdicionar" type="button" id="btnAdicionar" value="ADICIONAR" class="btn btn-danger">
+                        <input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
+                        <input name="btnConsultar" type="button" id="btnConsultar" value="CONSULTAR" class="btn btn-default">
+                        <input name="btnEliminar" type="button" id="btnEliminar" value="ELIMINAR" class="btn btn-default">
+                        <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-default">
+                    </nav>
+                    <section id="secListado">
+                        <table id="tblListado" class="table table-condensed">
+                            <tr>
+                                <td>Nombre del Lugar</td>
+                                <td>Disponibilidad</td>
+                                <td>Descripción</td>
+                                <td>Presupuesto</td>
+                                <td>Cantidad de Personas</td>
+                            </tr>
+                        </table>
+                    </section>
             </form>
         </section>
     </body>

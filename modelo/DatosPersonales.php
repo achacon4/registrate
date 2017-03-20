@@ -1,4 +1,5 @@
 <?php
+namespace modelo;
 require_once '../entidad/DatosPersonales.php';
 require_once '../entorno/Conexion.php';
 class DatosPersonales{
@@ -34,7 +35,7 @@ class DatosPersonales{
          }
      }
       function adicionar(){
-        $sentenciaSql= "INSERT INTO
+         $sentenciaSql= "INSERT INTO
                             datospersonales
                         (
                             nombre
@@ -49,10 +50,10 @@ class DatosPersonales{
                         )
                         VALUES
                         (
-                            ".$this->nombre."
+                            '$this->nombre'
                             ,'$this->apaterno'
-                            ,".$this->amaterno."
-                            ,".$this->tipoDocumento."
+                            ,'$this->amaterno'
+                            ,'$this->tipoDocumento'
                             ,'$this->numeroDocumento'
                             ,'$this->email'
                             ,'$this->telefono'
