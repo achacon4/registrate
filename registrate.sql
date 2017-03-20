@@ -1,4 +1,4 @@
-/*
+﻿/*
 SQLyog Community v12.2.2 (64 bit)
 MySQL - 5.7.12-log : Database - registrate
 *********************************************************************
@@ -157,7 +157,7 @@ CREATE TABLE `lugar` (
 /*Data for the table `lugar` */
 
 insert  into `lugar`(`idLugar`,`nombre`,`disponibilidad`,`descripcion`,`presupuesto`,`cantidadPersonas`) values 
-(1,'Auditorio Sena Industrial',0,'Auditorio con aire acondicionado',0,100);
+(1,'Auditorio Sena Industrial',DISPONIBLE,'Auditorio con aire acondicionado',0,100);
 
 /*Table structure for table `tipousuario` */
 
