@@ -21,7 +21,7 @@
                         <div class="form-group has-success has-feedback">
                             <label for="inputSuccess3"  class="control-label col-sm-2">Nombre:</label>
                             <div class="col-sm-9">
-                                <input type="text"  name="txtNombre" id="txtNombre" class="form-control" aria-describedby="inputSuccess3Status">
+                                <input type="text"  name="txtNombre" id="txtNombre" class="form-control" >
                                     <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                     <span id="inputSuccess3Status" class="sr-only">(success)</span>
                             </div>

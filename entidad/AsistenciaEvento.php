@@ -1,8 +1,8 @@
 <?php
 
 namespace entidad;
-require_once '../entidad/VerificacionAsistentes.php';
-require_once '../entidad/Evento.php';
+require_once '../entidad/RegistroAsistente.php';
+require_once '../modelo/Evento.php';
 
 class AsistenciaEvento{
     
@@ -10,8 +10,17 @@ class AsistenciaEvento{
     private $idAsistenteEventoFK;
     private $idEventoFK;
     private $tomarAsistencia;
+    private $asistentes = array();
     
-    function getIdAsistenciaEvento() {
+    function getAsistentes() {
+        return $this->asistentes;
+    }
+
+    function setAsistentes($asistentes) {
+        $this->asistentes = $asistentes;
+    }
+
+        function getIdAsistenciaEvento() {
         return $this->idAsistenciaEvento;
     }
 
@@ -31,7 +40,7 @@ class AsistenciaEvento{
         $this->idAsistenciaEvento = $idAsistenciaEvento;
     }
 
-    function setIdAsistenteEventoFK(\entidad\VerificacionAsistentes $idAsistenteEventoFK) {
+    function setIdAsistenteEventoFK(\entidad\RegistroAsistente $idAsistenteEventoFK) {
         $this->idAsistenteEventoFK = $idAsistenteEventoFK;
     }
 
