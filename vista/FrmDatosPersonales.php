@@ -16,7 +16,7 @@
 </header>
 <section id="secPrincipal">
 <form name="frmDatosPersonales" id="frmDatosPersonales" action="" method="POST">
-<input name="hididDatosPersonales" id="hididDatosPersonales" type="text">
+<input name="hidIdDatosPersonales" id="hidIdDatosPersonales" type="hidden">
 <section id="secFormulario">
 <div class="table">
 <div class="tr">
@@ -36,7 +36,7 @@
 <div class="tdTexto">TipoDocumento:</div>
 <div class="td"><select name="selTipoDocumento" id="selTipoDocumento" class="form-control tamanioTexto">
 <option value="">-SELECCIONE--</option>
-<option>T</option>
+<option>T.I</option>
 </select></div>
 </div>
 </div>

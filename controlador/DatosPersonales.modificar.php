@@ -28,12 +28,12 @@ try {
         
         $clienteM = new \modelo\DatosPersonales($clienteE,null);
        
-        $entidadM->conexion->iniciarTransaccion();
+//        $entidadM->conexion->iniciarTransaccion();
         $clienteM->modificar();
-        $entidadM->conexion->confirmarTransaccion();
+//        $entidadM->conexion->confirmarTransaccion();
         $retorno['mensaje']='Se modifico Correctamente';
 } catch (Exception $error) {
-    $entidadM->conexion->cancelarTransaccion();
+//    $entidadM->conexion->cancelarTransaccion();
     $retorno['exito']=0;
     $retorno['mensaje']=$error->getMessage();
 }
