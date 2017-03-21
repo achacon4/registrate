@@ -44,6 +44,7 @@ try {
          $retorno['data']['datos'][$contador]['numeroDocumento'] = $fila->numeroDocumento;
          $retorno['data']['datos'][$contador]['email'] = $fila->email;
          $retorno['data']['datos'][$contador]['telefono'] = $fila->telefono;
+         $retorno['data']['datos'][$contador]['estado'] = $fila->estado;
          
          $contador++;
      }
