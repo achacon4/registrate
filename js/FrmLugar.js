@@ -122,9 +122,9 @@ function crearListado(Lugares){
            }
     
 }
-function seleccionarRegistro(idLugar){
+function seleccionarRegistro(nombre){
     limpiar();
-    $("#hidIdLugar").val(idLugar);
+    $("#txtNombre").val(nombre);
     $("#btnConsultar").trigger( "click" );
     
 }

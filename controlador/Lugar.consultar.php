@@ -4,7 +4,7 @@ require_once '../entidad/Lugar.php';
 
 $retorno = array("exito"=>1,"mensaje"=>"", "data"=>array("lugares"=>array()));
 try {
-          $idLugar = filter_input(INPUT_POST, 'idLugar');
+          $idLugar = filter_input(INPUT_POST, 'hidIdLugar');
           $nombre = filter_input(INPUT_POST, 'txtNombre');
 	  $disponiblilidad = filter_input (INPUT_POST, 'selDisponibilidad');
 	  $descripcion = filter_input (INPUT_POST, 'txtDescripcion');
@@ -19,7 +19,7 @@ try {
 	        $entidadE-> setPresupuesto ($presupuesto);
 	        $entidadE-> setCantidadPersonas ($cantidadPersonas);
                 
-           $entidadM = new \modelo\Lugar($entidadE, null);       
+           $entidadM = new \modelo\Lugar($entidadE);       
            $entidadM->consultar();
            $numeroRegistros = $entidadM->conexion->obtenerNumeroRegistros();
            $retorno['data']['numeroRegistros'] = $numeroRegistros;
