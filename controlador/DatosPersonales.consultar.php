@@ -7,7 +7,6 @@ $retorno = array("exito"=>1,"mensaje"=>"","data"=>array("datos"=>array()));
 
 try {
     
-
     $idDatosPersonales = filter_input(INPUT_POST, 'hidIdDatosPersonales');
     $nombre = filter_input(INPUT_POST, 'txtNombre');
     $apaterno = filter_input(INPUT_POST, 'txtApaterno');

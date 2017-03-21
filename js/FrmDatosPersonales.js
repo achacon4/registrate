@@ -58,9 +58,16 @@ $(function (){
     });
 }
 
-//function limpiar(){
-//    $
-//}
+function limpiar(){
+    $("#hididDatosPersonales").val('');
+    $("#txtNombre").val('');
+    $("#txtApaterno").val('');
+    $("#txtAmaterno").val('');
+    $("#selTipoDocumento").val('');
+    $("#txtNumeroDocumento").val('');
+    $("#txtEmail").val('');
+    $("#txtTelefono").val('');
+}
 
 function eliminar(){
       
@@ -78,7 +85,7 @@ function eliminar(){
                     return false;
              }
              alert(resultado.mensaje);
-             //limpiar();
+              limpiar();
               consultar();
             }, error:function(xhr,status,error){
                 alert("Error: "+error);
@@ -153,7 +160,7 @@ function crearListado(DatosPersonales){
 }
 
 function seleccionarRegistro(idDatosPersonales){
-    //limpiar();
+    limpiar();
     $("#hidIdDatosPersonales").val(idDatosPersonales);
     $("#btnConsultar").trigger( "click" );
 }
