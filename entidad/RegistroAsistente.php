@@ -1,7 +1,7 @@
 <?php
 namespace entidad;
 
-class RegistroAsistente{
+class AsistenteEvento{
     private $idAsistenteEvento;
     private $idEventoFK;
     private $nombre;
