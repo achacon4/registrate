@@ -16,7 +16,7 @@
 </header>
 <section id="secPrincipal">
 <form name="frmDatosPersonales" id="frmDatosPersonales" action="" method="POST">
-<input name="hididDatosPersonales" id="hididDatosPersonales" type="hidden">
+<input name="hididDatosPersonales" id="hididDatosPersonales" type="text">
 <section id="secFormulario">
 <div class="table">
 <div class="tr">
@@ -36,7 +36,7 @@
 <div class="tdTexto">TipoDocumento:</div>
 <div class="td"><select name="selTipoDocumento" id="selTipoDocumento" class="form-control tamanioTexto">
 <option value="">-SELECCIONE--</option>
-<option >T.I</option>
+<option>T</option>
 </select></div>
 </div>
 </div>
@@ -52,12 +52,13 @@
 <div class="tdTexto">Telefono:</div>
 <div class="td"><input name="txtTelefono" type="text" id="txtTelefono" class="form-control tamanioTexto"></div>
 </div>
-</section>
+ 
 <br>
 <nav>
 <input name="btnAdicionar" type="button" id="btnAdicionar" value="ADICIONAR" class="btn btn-danger">
-<input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
 <input name="btnConsultar" type="button" id="btnConsultar" value="CONSULTAR" class="btn btn-default">
+<input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
+<input name="btnEliminar" type="button" id="btnEliminar" value="ELIMINAR" class="btn btn-default">
 <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-default">
 </nav>
 <section id="secListado">
