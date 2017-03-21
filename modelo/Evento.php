@@ -131,7 +131,7 @@ class Evento
         $this->conexion->ejecutar($sentenciaSql);
     }
     
-    function consultarAsistentes(){
+    function consultarAsistentes($idEvento){
         $sentenciaSql = "SELECT 
                             idAsistenteEvento
                             , nombre
@@ -140,10 +140,12 @@ class Evento
                             , tipoDocumento
                             , numeroDocumento
                             , telefono
+                            , estado
                         FROM
                             asistenteEvento
                         WHERE 
-                            idEventoFK = 1
+                            idEventoFK = $idEvento
+                            and estado <> 'CANCELADO'
                         ";
         $this->conexion->ejecutar($sentenciaSql);     
     }
