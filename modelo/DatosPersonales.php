@@ -35,7 +35,7 @@ class DatosPersonales{
          }
      }
       function adicionar(){
-         $sentenciaSql= "INSERT INTO
+        $sentenciaSql= "INSERT INTO
                             datospersonales
                         (
                             nombre
@@ -63,14 +63,33 @@ class DatosPersonales{
        
     }
     
-     function modificar(){
+     function eliminar(){
+        $sentenciaSql= " DELETE FROM
+                            datospersonales
+                        WHERE
+                            idDatosPersonales = $this->idDatosPersonales
+                        ";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+   
+    function consultar(){
+       $condicion = $this->obtenerCondicion();
+        $sentenciaSql= "SELECT 
+                          *
+                        FROM 
+                          datospersonales
+                        $condicion";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+    
+    function modificar(){
         $sentenciaSql= "UPDATE
                             datospersonales
                         SET
-                            nombre=".$this->nombre."
+                            nombre= '$this->nombre'
                             ,apaterno='$this->apaterno'
-                            ,amaterno=".$this->amaterno."
-                            ,tipoDocumento=".$this->tipoDocumento."
+                            ,amaterno='$this->amaterno'
+                            ,tipoDocumento='$this->tipoDocumento'
                             ,numeroDocumento='$this->numeroDocumento'
                             ,email='$this->email'
                             ,telefono='$this->telefono'
@@ -81,25 +100,45 @@ class DatosPersonales{
                         ";
         $this->conexion->ejecutar($sentenciaSql);
      }
-     
-     function eliminar(){
-        $sentenciaSql= "DELETE FROM
-                            datospersonales
-                        WHERE
-                            idDatosPersonales = $this->idDatosPersonales
-                        ";
-        $this->conexion->ejecutar($sentenciaSql);
-    }
-    
-    function consultar(){
-       
-        $sentenciaSql= "SELECT 
-                          *
-                        FROM 
-                          datospersonales
-            
-                        ";
-        $this->conexion->ejecutar($sentenciaSql);
-    }
-   
+        function obtenerCondicion(){
+        $condicion = '';
+        $whereAnd = ' WHERE ';
+        if($this->idDatosPersonales != ''){
+            $condicion = $condicion.$whereAnd." idDatosPersonales = ".$this->idDatosPersonales;
+            $whereAnd = ' AND ';
+        }
+        if($this->nombre != ''){
+            $condicion = $condicion.$whereAnd." nombre LIKE '%".$this->nombre."%'";
+            $whereAnd = ' AND ';
+        }
+        if($this->apaterno != ''){
+            $condicion = $condicion.$whereAnd." apaterno = ".$this->apaterno;
+            $whereAnd = ' AND ';
+        }
+        if($this->amaterno != ''){
+            $condicion = $condicion.$whereAnd." amaterno = ".$this->amaterno;
+            $whereAnd = ' AND ';
+        }
+        if($this->tipoDocumento != ''){
+            $condicion = $condicion.$whereAnd." tipoDocumento = ".$this->tipoDocumento;
+            $whereAnd = ' AND ';
+        }
+        if($this->numeroDocumento != ''){
+            $condicion = $condicion.$whereAnd." numeroDocumento = ".$this->numeroDocumento;
+            $whereAnd = ' AND ';
+        }
+        if($this->email != ''){
+            $condicion = $condicion.$whereAnd." email = ".$this->email;
+            $whereAnd = ' AND ';
+        }
+        if($this->telefono != ''){
+            $condicion = $condicion.$whereAnd." telefono = ".$this->telefono;
+            $whereAnd = ' AND ';
+        }
+        if($this->estado != ''){
+            $condicion = $condicion.$whereAnd." estado = '".$this->estado."'";
+            $whereAnd = ' AND ';
+        }
+        return $condicion;
+    }    
 }
