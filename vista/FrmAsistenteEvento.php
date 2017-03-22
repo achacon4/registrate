@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Registro Asistente</title>
+        <title>Asistente Evento</title>
         <script src="../jquery/jquery.js" type="text/javascript"></script>
         <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
-        <script src="../js/FrmRegistroAsistente.js" type="text/javascript"></script>
+        <script src="../js/FrmAsistenteEvento.js" type="text/javascript"></script>
         <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     </head>
@@ -18,6 +18,16 @@
                     <section id="secFormulario" class="panel-body">
                         <input name="idAsistenteEvento" id="idAsistenteEvento" type="hidden">
                         <input name="idEventoFK" id="idEventoFK" type="hidden" >
+                        
+                         <div class="form-group has-success has-feedback">
+                            <label for="inputSuccess3"  class="control-label col-sm-2">Evento :</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="selEvento" id="selEvento">
+                                <input type="text"  name="txtEvento" id="txtEvento" class="form-control" >
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                            </div>
+                        </div>
                         <div class="form-group has-success has-feedback">
                             <label for="inputSuccess3"  class="control-label col-sm-2">Nombre:</label>
                             <div class="col-sm-9">
@@ -86,7 +96,18 @@
                                     <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                     <span id="inputSuccess3Status" class="sr-only">(success)</span>
                             </div>
-                        </div>                    
+                        </div>    
+                          <div class="form-group has-success has-feedback">
+                            <label for="inputSuccess3"  class="control-label col-sm-2">Estado:</label>
+                            <div class="col-sm-9">
+                                <select id="selEstado"  class="form-control" name="selEstado">
+                                    <option value="CONFIRMADO">Confirmado</option>
+                                    <option value="SIN CONFIRMAR">Sin Confirmar</option>
+                                    <option value="CANCELADO">Cancelado</option>
+                                </select>
+                                 
+                            </div>
+                        </div>  
                     </section>
                 </form>
                 <center>
