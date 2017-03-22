@@ -11,7 +11,16 @@ class AsistenteEvento{
     private $numeroDocumento;
     private $email;
     private $telefono;
+    private $estado;
     
+    function getEstado() {
+        return $this->estado;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
+
     function getIdAsistenteEvento() {
         return $this->idAsistenteEvento;
     }
