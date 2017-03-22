@@ -57,13 +57,19 @@ $(document).ready(function(){
 		        $('#resultado').text(data["resultado"]);
 		    });		   
 		});
-
-	$('#btnLimpiar').click(function(){
-		$("#idCategoria").val(""); 
-		$("#txtNombreCategoria").val("");
+                $('#btnLimpiar').click(function(){
+                limpiar();
+               limpiarListado();
+                });
 	});
-
-      
+        function limpiar(){
+           $("#idCategoria").val(""); 
+           $("#txtNombreCategoria").val("");
+        }
+        function limpiarListado(){
+          $("#resultado").html("");
+       }
+         
 	 $('#btnModificar').click(function (){
 		    var accion = "MODIFICAR"; 
 		    var categoria = $("#idCategoria").val(); 
@@ -79,7 +85,6 @@ $(document).ready(function(){
 		        $('#resultado').text(data["resultado"]);
 		    });		   
 		});
-});
 
 function selecionarRegistro(id){
                     $('#idCategoria').val(id);                  
