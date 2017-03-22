@@ -14,9 +14,9 @@
 	
     <body>
         <header>
-                <h1>
-                        <center>Evento</center>
-                </h1>
+            <h1>
+                <center>Evento</center>
+            </h1>
         </header>
 
         <section id="secPrincipalEvento">
