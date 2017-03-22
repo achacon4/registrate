@@ -5,13 +5,15 @@ class Conexion{
     
     function __construct(){
         //$this->conn = new PDO("mysql:host=localhostooo;port=3306;dbname=clientes;charset=utf8", "root", "123");
-        $this->conn = new mysqli('localhost:3306','root','123', 'registrate', 3306);
+        $this->conn = new mysqli('localhost','root','123', 'registrate');
         //$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-    public function ejecutar($sentenciaSql){
+    
+    public function ejecutar($sentenciaSql) {
         $this->recordSet = $this->conn->query($sentenciaSql);
-        if ($this->recordSet == FALSE) 
-            throw new Exception("Error ejecutando la sentencia: ".$sentenciaSql);
+        if($this->recordSet == FALSE){
+            throw new Exception("Error al ejecutar la sentencia".$sentenciaSql);
+        }
     }
     public function obtenerObjeto(){
         return $this->recordSet->fetch_object();

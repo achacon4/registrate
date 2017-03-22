@@ -16,7 +16,7 @@
 </header>
 <section id="secPrincipal">
 <form name="frmDatosPersonales" id="frmDatosPersonales" action="" method="POST">
-<input name="hididDatosPersonales" id="hididDatosPersonales" type="hidden">
+<input name="hidIdDatosPersonales" id="hidIdDatosPersonales" type="hidden">
 <section id="secFormulario">
 <div class="table">
 <div class="tr">
@@ -25,22 +25,23 @@
 <input name="txtNombre" type="text" id="txtNombre" class="form-control tamanioTexto"></div>
 </div>
 <div class="tr">
-<div class="tdTexto">Apaterno:</div>
+<div class="tdTexto">Primer Apellido:</div>
 <div class="td"><input name="txtApaterno" type="text" id="txtApaterno" class="form-control tamanioTexto"></div>
 </div>
 <div class="tr">
-<div class="tdTexto">Amaterno:</div>
+<div class="tdTexto">Segundo Apellido:</div>
 <div class="td"><input name="txtAmaterno" type="text" id="txtAmaterno" class="form-control tamanioTexto"></div>
 </div>
 <div class="tr">
-<div class="tdTexto">TipoDocumento:</div>
+<div class="tdTexto">Tipo Documento:</div>
 <div class="td"><select name="selTipoDocumento" id="selTipoDocumento" class="form-control tamanioTexto">
 <option value="">-SELECCIONE--</option>
+<option>T.I</option>
 </select></div>
 </div>
 </div>
 <div class="tr">
-<div class="tdTexto">NumeroDocumento:</div>
+<div class="tdTexto">Número Documento:</div>
 <div class="td"><input name="txtNumeroDocumento" type="text" id="txtNumeroDocumento" class="form-control tamanioTexto"></div>
 </div>
 <div class="tr">
@@ -48,27 +49,28 @@
 <div class="td"><input name="txtEmail" type="text" id="txtEmail" class="form-control tamanioTexto"></div>
 </div>
 <div class="tr">
-<div class="tdTexto">Telefono:</div>
+<div class="tdTexto">Teléfono:</div>
 <div class="td"><input name="txtTelefono" type="text" id="txtTelefono" class="form-control tamanioTexto"></div>
 </div>
-</section>
+ 
 <br>
 <nav>
 <input name="btnAdicionar" type="button" id="btnAdicionar" value="ADICIONAR" class="btn btn-danger">
-<input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
 <input name="btnConsultar" type="button" id="btnConsultar" value="CONSULTAR" class="btn btn-default">
+<input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
+<input name="btnEliminar" type="button" id="btnEliminar" value="ELIMINAR" class="btn btn-default">
 <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-default">
 </nav>
 <section id="secListado">
 <table id="tblListado" class="table">
 <tr>
 <td>Nombre</td>
-<td>Apaterno</td>
-<td>Amaterno</td>
-<td>TipoDocumento</td>
-<td>NumeroDocumento</td>
+<td>Primer Apellido</td>
+<td>Segundo Apellido</td>
+<td>Tipo Documento</td>
+<td>Número Documento</td>
 <td>E-Mail</td>
-<td>Telefono</td>
+<td>Teléfono</td>
 <td>Estado</td>
 </tr>
 </table>

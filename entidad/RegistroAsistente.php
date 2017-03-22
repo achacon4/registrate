@@ -1,6 +1,7 @@
 <?php
+namespace entidad;
 
-class VerificacionAsistente{
+class AsistenteEvento{
     private $idAsistenteEvento;
     private $idEventoFK;
     private $nombre;
@@ -51,7 +52,7 @@ class VerificacionAsistente{
         $this->idAsistenteEvento = $idAsistenteEvento;
     }
 
-    function setIdEventoFK($idEventoFK) {
+    function setIdEventoFK(\entidad\Evento $idEventoFK) {
         $this->idEventoFK = $idEventoFK;
     }
 

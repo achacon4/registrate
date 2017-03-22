@@ -4,7 +4,6 @@ require_once '../entorno/Conexion.php';
 require_once '../entidad/Evento.php';
 require_once '../modelo/Lugar.php';
 require_once '../modelo/DatosPersonales.php';
-require_once '../modelo/Categoria.php';
 
 class Evento
 {
@@ -119,5 +118,35 @@ class Evento
                             INNER JOIN categoria AS c ON e.idCategoriaFK = c.idCategoria
                         ";
         $this->conexion->ejecutar($sentenciaSql);
+    }
+    
+    function consultarAjax($valor, $limite = ''){
+        $sentenciaSql = "SELECT
+                            e.idEvento
+                            ,e.nombreEvento
+                        FROM
+                            evento AS e
+                        WHERE e.nombreEvento LIKE '%$valor%'
+                        $limite";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+    
+    function consultarAsistentes($idEvento){
+        $sentenciaSql = "SELECT 
+                            idAsistenteEvento
+                            , nombre
+                            , apaterno
+                            , amaterno
+                            , tipoDocumento
+                            , numeroDocumento
+                            , telefono
+                            , estado
+                        FROM
+                            asistenteEvento
+                        WHERE 
+                            idEventoFK = $idEvento
+                            and estado <> 'CANCELADO'
+                        ";
+        $this->conexion->ejecutar($sentenciaSql);     
     }
 }
