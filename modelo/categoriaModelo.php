@@ -76,13 +76,13 @@ class CategoriaModel
 				$query = "DELETE FROM categoria WHERE idCategoria =".$this->nombreCategoria;
 				$resultQuery = $this->conexion->ejecutar($query);
 				if($this->conexion->obtenerNumeroRegistros($this->conexion)>0){
-		     		echo json_encode(array("respuesta"=>"Elimino efectuado!"));
+		     		echo json_encode(array("resultado"=>"Elimino efectuado!"));
 				}else{
-					echo json_encode(Array("respuesta"=>"Error al eliminar!"));
+					echo json_encode(Array("resultado"=>"Error al eliminar!"));
 				}
 		}
 		catch(Exception $e){
-			echo json_encode(Array("respuesta"=>"Ocurrio un error: La categoria no se puede eliminar por que tiene una dependecia de llave FK"));
+			echo json_encode(Array("resultado"=>"Ocurrio un error: La categoria no se puede eliminar por que tiene una dependecia de llave FK"));
 		}
 	}
         
