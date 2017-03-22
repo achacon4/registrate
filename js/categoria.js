@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	            $('#btnAdicionar').click(function () {
+	            $('#btnAdicionar').click(function () {	          
                  var accion = "ADICIONAR";
                  var nombre = $("#txtNombreCategoria").val();
                  var datos = {"accion":accion,"nombre":nombre};
@@ -9,12 +9,15 @@ $(document).ready(function(){
                           dataType:'json',
                           data:datos
                      }).done(function(data) {
-                     	//Respuesta.
-                         $('#resultado').html('Ajax dice: ' + data);
+                     	 $('#resultado').empty();
+                        $('#resultado').text(data["resultado"]);
             });
         });
 
-	 $('#btnLimpiar').click(function(){
+	 $('#btnEliminar').click(function(){
+	 		if(confirm("Desea continuar?")==false){
+	            		return  false;
+	        }
 		    var accion = "ELIMINAR"; 
 		    var categoria = $("#idCategoria").val(); 
 		    var datos = {"accion":accion,"categoria":categoria}; 
@@ -24,12 +27,17 @@ $(document).ready(function(){
 		        dataType:'json', 
 		        data:datos 
 		    }).done(function(data){
+		    	$('#resultado').empty();
 		        $('#resultado').text(data["respuesta"]);
 		    });		   
 		});
 
-	
-                $('#btnConsultar').click(function (){
+	$('#btnLimpiar').click(function(){
+		$("#idCategoria").val(""); 
+		$("#txtNombreCategoria").val("");
+	});
+
+       $('#btnConsultar').click(function (){
 		    var accion = "CONSULTAR"; 	
 		    var datos = {"accion":accion}; 
 		    $.ajax({
@@ -47,9 +55,9 @@ $(document).ready(function(){
                         tbl += "<tr>";
                        $.each(data, function (indice, nombre){
                             var onclick = 'selecionarRegistro('+nombre.idCategoria+')';
-                            tbl += '<td><a href="#"onclick="'+onclick+'">'+nombre.nombreCategoria+'</a></td>';                                                                           
+                            tbl += '<td><a href="#"onclick="'+onclick+'">'+nombre.nombreCategoria+'</a></td>';
+                            tbl += "</tr>";                                                                        
 		    });	
-                        tbl += "</tr>";
                         tbl += "</table>";                                                                                             
                         $("#resultado").html(tbl);
 		});
@@ -66,7 +74,8 @@ $(document).ready(function(){
 		        dataType:'json', 
 		        data:datos 
 		    }).done(function(data){
-		        //Respuesta
+		    	$('#resultado').empty();
+		        $('#resultado').text(data["resultado"]);
 		    });		   
 		});
 });
