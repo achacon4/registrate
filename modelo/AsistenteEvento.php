@@ -1,8 +1,10 @@
 <?php
 namespace modelo;
-require_once '../entidad/RegistroAsistente.php';
+require_once '../entorno/Conexion.php';
+require_once '../entidad/AsistenteEvento.php';
 
-class RegistroAsistente 
+
+class AsistenteEvento
 {
     public $conexion;
 
@@ -15,9 +17,10 @@ class RegistroAsistente
     private $numeroDocumento;
     private $email;
     private $telefono;
+    private $estado;
 	
 
-	function _construct( \entidad\RegistroAsistente $asistente, $conexion =null){
+	function __construct(\entidad\AsistenteEvento $asistente, $conexion =null){
 
 			$this->idAsistenteEvento = $asistente->getIdAsistenteEvento();
 			$this->idEventoFK = $asistente->getIdEventoFK();
@@ -28,6 +31,7 @@ class RegistroAsistente
 			$this->numeroDocumento = $asistente->getNumeroDocumento();
 			$this->email = $asistente->getEmail();
 			$this->telefono = $asistente->getTelefono();
+                        $this->estado = $asistente->getEstado();
 
                       if($conexion==null)
                       {
@@ -43,7 +47,7 @@ class RegistroAsistente
     {
             $sentenciaSql = "INSERT INTO asistenteevento
                                     (
-                                      ,idEventoFK
+                                      idEventoFK
                                       ,nombre
                                       ,apaterno
                                       ,amaterno
@@ -51,11 +55,12 @@ class RegistroAsistente
                                       ,numeroDocumento
                                       ,email
                                       ,telefono
+                                      ,estado
                                     )
                                     VALUES
                                     (
                                    
-                                    ,$this->idEventoFK
+                                    ".$this->idEventoFK->getIdEvento()."
                                     ,'$this->nombre'
                                     ,'$this->apaterno'
                                     ,'$this->amaterno'
@@ -63,6 +68,7 @@ class RegistroAsistente
                                     ,'$this->numeroDocumento'
                                     ,'$this->email'
                                     ,'$this->telefono'
+                                    ,'$this->estado'
 
                                     )";
 
@@ -91,18 +97,7 @@ class RegistroAsistente
               $this->conexion->ejecutar($sentenciaSql);
           }
 
-      function eliminar()
-     {
-          $sentenciaSql = "DELETE FROM
-                            asistenteevento 
-                                 WHERE 
-                                  idAsistenteEvento = $this->idAsistenteEvento";
-
-
-
-         $this->conexion->ejecutar($sentenciaSql);
-     }
-
+      
 
      function consultarTodo()
      {
@@ -117,8 +112,8 @@ class RegistroAsistente
       $sentenciaSql = "SELECT * FROM   asistenteevento ".$condicion; 
       $this->conexion->ejecutar($sentenciaSql);
      }
-}
-function obtenerCondicion()
+     
+     function obtenerCondicion()
     {
        $condicion = '';
         $whereAnd = ' WHERE ';
@@ -128,7 +123,8 @@ function obtenerCondicion()
             $condicion = $condicion.$whereAnd."idAsistenteEvento = '". $this->idAsistenteEvento."'";
             $whereAnd = ' AND ';
         }
-        if($this->idEventoFK != '')
+         $idEvento = $this->idEventoFK->getIdEvento();
+        if($idEvento != '')
         {
             $condicion = $condicion.$whereAnd."idEventoFK = '". $this->idEventoFK."'";
             $whereAnd = ' AND ';
@@ -169,3 +165,6 @@ function obtenerCondicion()
             $whereAnd = ' AND ';
         }
     }
+}
+
+

@@ -1,5 +1,6 @@
 <?php
 namespace entidad;
+require_once '../modelo/Evento.php';
 
 class AsistenteEvento{
     private $idAsistenteEvento;
@@ -12,6 +13,15 @@ class AsistenteEvento{
     private $email;
     private $telefono;
     
+    function getEstado() {
+        return $this->estado;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
+
+        
     function getIdAsistenteEvento() {
         return $this->idAsistenteEvento;
     }
