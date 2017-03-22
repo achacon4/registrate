@@ -127,12 +127,13 @@ function crearListado(DatosPersonales){
     }else{
         var listado = '<table class="table" id="tblListado">'+
                  '<tr><td>Nombre</td>\n\
-                  <td>Apaterno</td>\n\
-                  <td>Amaterno</td>\n\
-                  <td>Tipo de documento</td>\n\
-                  <td>Numero de documento</td> \n\
+                  <td>Primer Apellido</td>\n\
+                  <td>Segundo Apellido</td>\n\
+                  <td>Tipo Documento</td>\n\
+                  <td>Número Documento</td> \n\
                   <td>Email</td> \n\
-                  <td>Telefono</td> \n\
+                  <td>Teléfono</td> \n\
+                  <td>Estado</td> \n\
                  ';
     $.each(DatosPersonales, function (indice, datos){
                   listado = listado+'<tr></td><td><a href="#" onclick="seleccionarRegistro('+datos.idDatosPersonales+')">'+datos.nombre+'</a></td><td>'
@@ -141,7 +142,8 @@ function crearListado(DatosPersonales){
                                               +datos.tipoDocumento+'</td><td>'
                                               +datos.numeroDocumento+'</td><td>'
                                               +datos.email+'</td><td>'
-                                              +datos.telefono+'</td></tr>';
+                                              +datos.telefono+'</td><td>'
+                                              +datos.estado+'</td></tr>';
               });
                listado = listado+'</table>';    
                $('#secListado').html(listado);

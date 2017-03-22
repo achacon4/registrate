@@ -73,12 +73,13 @@ class DatosPersonales{
     }
    
     function consultar(){
-        $condicion = $this->obtenerCondicion();
+       $condicion = $this->obtenerCondicion();
         $sentenciaSql= "SELECT 
                           *
                         FROM 
                           datospersonales
                         $condicion";
+
         $this->conexion->ejecutar($sentenciaSql);
     }
     
