@@ -78,7 +78,8 @@ class DatosPersonales{
                           *
                         FROM 
                           datospersonales
-                       $condicion ";
+                        $condicion";
+
         $this->conexion->ejecutar($sentenciaSql);
     }
     
