@@ -82,15 +82,15 @@ class AsistenteEvento
          $sentenciaSql = "UPDATE 
                             asistenteevento 
                                  SET 
-                                 idEventoFK= $this->idEventoFK
+                                 idEventoFK = ".$this->idEventoFK->getIdEvento()."
                                  ,nombre= '$this->nombre'
                                  ,apaterno= '$this->apaterno'
                                  ,amaterno= '$this->amaterno'
                                  ,tipoDocumento='$this->tipoDocumento'
                                  ,numeroDocumento= '$this->numeroDocumento'
-                                 ,fechaNacimiento='$this->fechaNacimiento'
                                  ,email= '$this->email'
                                  ,telefono= '$this->telefono' 
+                                 ,estado= '$this->estado' 
                                  WHERE 
                                  idAsistenteEvento = $this->idAsistenteEvento";
 
@@ -109,7 +109,14 @@ class AsistenteEvento
      function consultar()
      {
       $condicion = $this->obtenerCondicion() ;
-      $sentenciaSql = "SELECT * FROM   asistenteevento ".$condicion; 
+      $sentenciaSql = "SELECT 
+                            a.*
+                            ,ne.nombreEvento AS nombreEventos
+                        FROM 
+                         asistenteevento AS a
+                         INNER JOIN evento AS ne ON a.idEventoFK = ne.IdEvento
+                         
+          ".$condicion; 
       $this->conexion->ejecutar($sentenciaSql);
      }
      
@@ -164,6 +171,7 @@ class AsistenteEvento
             $condicion = $condicion.$whereAnd."telefono = '". $this->telefono."'";
             $whereAnd = ' AND ';
         }
+        return $condicion;
     }
 }
 

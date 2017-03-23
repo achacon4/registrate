@@ -125,8 +125,8 @@ function crearListado(DatosPersonales){
     $("#txtTelefono").val(DatosPersonales[0].telefono);
          
     }else{
-        var listado = '<table class="table" id="tblListado">'+
-                 '<tr><td>Nombre</td>\n\
+        var listado = '<table class="table"  id="tblListado">'+
+                 '<tr class="active"><td>Nombre</td>\n\
                   <td>Primer Apellido</td>\n\
                   <td>Segundo Apellido</td>\n\
                   <td>Tipo Documento</td>\n\

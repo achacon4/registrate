@@ -3,20 +3,20 @@
 require_once '../modelo/AsistenteEvento.php';
 require_once '../entidad/AsistenteEvento.php';
 
-$retorno = array('exito'=>1,'mensaje'=>'','data'=>array());
+$retorno = array("exito"=>1,"mensaje"=>"","data"=>array("AsistenteEvento"=>array()));
     try
     {
         
-        $idAsistenteEvento = $_POST['idAsistenteEvento'];
-        $idEventoFK = $_POST['txtEvento'];
-        $nombre= $_POST['txtNombre'];
-        $apaterno = $_POST['txtApaterno'];
-        $amaterno= $_POST['txtAmaterno'];
-        $tipoDocumento = $_POST['selTipoDocumento'];
-        $numeroDocumento = $_POST['txtNumeroDocumento'];
-        $email = $_POST['txtEmail'];
-        $telefono = $_POST['txtTelefono'];
-        $estado= $_POST['selEstado'];
+        $idAsistenteEvento = filter_input(INPUT_POST,'idAsistenteEvento');
+        $idEventoFK = filter_input(INPUT_POST,'txtEvento');
+        $nombre= filter_input(INPUT_POST,'txtNombre');
+        $apaterno = filter_input(INPUT_POST,'txtApaterno');
+        $amaterno= filter_input(INPUT_POST,'txtAmaterno');
+        $tipoDocumento = filter_input(INPUT_POST,'selTipoDocumento');
+        $numeroDocumento = filter_input(INPUT_POST,'txtNumeroDocumento');
+        $email = filter_input(INPUT_POST,'txtEmail');
+        $telefono = filter_input(INPUT_POST,'txtTelefono');
+        $estado= filter_input(INPUT_POST,'selEstado');
         
         $clienteE = new \entidad\AsistenteEvento();
         $clienteE->setIdAsistenteEvento($idAsistenteEvento);
@@ -44,16 +44,17 @@ $retorno = array('exito'=>1,'mensaje'=>'','data'=>array());
   		
         while($fila = $clienteM->conexion->obtenerObjeto())
         {
-            $retorno['data'][$contador]['idAsistenteEvento']=$fila->idAsistenteEvento;
-            $retorno['data'][$contador]['idEventoFK']=$fila->idEventoFK;
-            $retorno['data'][$contador]['nombre']=$fila->nombre;
-            $retorno['data'][$contador]['apaterno']=$fila->apaterno;
-            $retorno['data'][$contador]['amaterno']=$fila->amaterno;
-            $retorno['data'][$contador]['tipoDocumento']=$fila->tipoDocumento;
-            $retorno['data'][$contador]['numeroDocumento']=$fila->numeroDocumento;
-            $retorno['data'][$contador]['email']=$fila->email;
-            $retorno['data'][$contador]['telefono']=$fila->telefono;
-            $retorno['data'][$contador]['estado']=$fila->estado;
+            $retorno['data']['AsistenteEvento'][$contador]['idAsistenteEvento']=$fila->idAsistenteEvento;
+            $retorno['data']['AsistenteEvento'][$contador]['idEventoFK']=$fila->idEventoFK;
+            $retorno['data']['AsistenteEvento'][$contador]['nombreEventos']=$fila->nombreEventos;
+            $retorno['data']['AsistenteEvento'][$contador]['nombre']=$fila->nombre;
+            $retorno['data']['AsistenteEvento'][$contador]['apaterno']=$fila->apaterno;
+            $retorno['data']['AsistenteEvento'][$contador]['amaterno']=$fila->amaterno;
+            $retorno['data']['AsistenteEvento'][$contador]['tipoDocumento']=$fila->tipoDocumento;
+            $retorno['data']['AsistenteEvento'][$contador]['numeroDocumento']=$fila->numeroDocumento;
+            $retorno['data']['AsistenteEvento'][$contador]['email']=$fila->email;
+            $retorno['data']['AsistenteEvento'][$contador]['telefono']=$fila->telefono;
+            $retorno['data']['AsistenteEvento'][$contador]['estado']=$fila->estado;
            
             $contador ++;
 

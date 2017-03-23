@@ -22,46 +22,57 @@ $(function(){
                 , data:data
                 , success:function (resultado){
                     if(resultado.exito === 0){
+                        
                         alert(resultado.mensaje);
-                        limpiar();
+                        
                         return false;
                     }
                     alert(resultado.mensaje);
+                    limpiar();
                 }, error:function(xhr, status, error){
                     alert("Error: "+error);
                 }
             });
         });
+     $("#btnModificar").click(function(){
+                 if(validarVacios() === false){
+                   return false;
+               }
+           var dataUrl = $("#frmPrincipal").serialize();
+           var dataJsonString = '{"'+ decodeURI(dataUrl).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"').replace(/\s/g,'')+'"}';
+           var data = JSON.parse(dataJsonString);
+           
+        $.ajax ({
+            url:'../controlador/AsistenteEvento.modificar.php' 
+            , type:'POST'
+            , dataType:'json'
+            ,data:data
+          
+            ,success:function (resultado){
+             if(resultado.exito === 0){
+                    alert(resultado.mensaje);
+                    return false;
+             }
+             alert(resultado.mensaje);
+             limpiar();
+            }, error:function(xhr,status,error){
+                alert("Error: "+error);
+            }
+        });
+    });
 
-      $("#btnConsultar").click(function (){  
+     $("#btnConsultar").click(function (){  
         consultar();
     });
 });
-function consultar(){
-    var data = $("#frmPrincipal").serialize();
-        $.ajax({
-           url:'../controlador/AsistenteEvento.consultar.php',
-           type:'POST',
-           dataType:'json',
-           data:data,
-           success:function(resultado){
-               if(resultado.exito === 0){
-                   alert(resultado.mensaje);
-                   return false;
-               }
-               crearListado(resultado.data.AsistenteEvento);
-           },error:function(xhr, status, error){
-               alert("error" + error);
-           }
-           
-        });
-}
+
  function crearListado(AsistenteEvento){
     var numeroRegistro = AsistenteEvento.length;
     
     if(numeroRegistro === 1){
     $("#idAsistenteEvento").val(AsistenteEvento[0].idAsistenteEvento);
-    $("#txtEvento").val(AsistenteEvento[0].idEventoFK);
+    $("#selEvento").val(AsistenteEvento[0].idEventoFK);
+    $("#txtEvento").val(AsistenteEvento[0].nombreEventos);
     $("#txtNombre").val(AsistenteEvento[0].nombre);
     $("#txtApaterno").val(AsistenteEvento[0].apaterno);
     $("#txtAmaterno").val(AsistenteEvento[0].amaterno);
@@ -79,15 +90,17 @@ function consultar(){
                         <td><b>Tipo de Documento</b></td>\n\
                         <td><b>Número de Documento</b></td> \n\
                         <td><b>Email</b></td> \n\
-                        <td><b>Teléfono</b></tr>';
+                        <td><b>Teléfono</b></td> \n\
+                        <td><b>Estado</b></tr>';
          
     $.each(AsistenteEvento, function (indice, asistente){
-                  listado = listado+'<tr><td>'+asistente.nombre+'</td><td><a onclick="seleccionarRegistro('+asistente.idAsistenteEvento+')">'+asistente.apaterno+'</a></td><td>'
+                  listado = listado+'<tr><td><a  onclick="seleccionarRegistro('+asistente.idAsistenteEvento+')">'+asistente.nombre+'</a></td><td>'
+                                              +asistente.apaterno+'</td><td>'
                                               +asistente.amaterno+'</td><td>'
                                               +asistente.tipoDocumento+'</td><td>'
                                               +asistente.numeroDocumento+'</td><td>'
                                               +asistente.email+'</td><td>'
-                                              +asistente.telefono+'</td><tr>'
+                                              +asistente.telefono+'</td><td>'
                                                 +asistente.estado+'</td><tr>';;
               });
                listado = listado +'</table>';    
@@ -95,13 +108,37 @@ function consultar(){
            }
     
 }
+function seleccionarRegistro(idAsistenteEvento){
+    limpiar();
+    $("#idAsistenteEvento").val(idAsistenteEvento);
+    $("#btnConsultar").trigger( "click" );
+    
+}
+function consultar(){
+    var data = $("#frmPrincipal").serialize();
+        $.ajax({
+           url:'../controlador/AsistenteEvento.consultar.php',
+           type:'POST',
+           dataType:'json',
+           data:data,
+           success:function(resultado){
+               if(resultado.exito === 0){
+                   alert(resultado.mensaje);
+                   return false;
+               }
+               crearListado(resultado.data.AsistenteEvento);
+           },error:function(xhr,status, error){
+               alert("error" + error);
+           }
+           
+        });
+}
 
 
 
 function limpiar()
 {
-    $("#selEvento").val('');
-    $("#txtEvento").val('');
+   
     $("#txtNombre").val('');
     $("#txtAmaterno").val('');
     $("#txtApaterno").val('');
