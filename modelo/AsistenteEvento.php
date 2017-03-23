@@ -42,7 +42,16 @@ class AsistenteEvento
                       }
 			
 }
-
+function exportar(){
+//$fecha = date("d-m-Y");
+$consulta= "SELECT 
+                            a.*
+                            ,ne.nombreEvento AS nombreEventos
+                        FROM 
+                         asistenteevento AS a
+                         INNER JOIN evento AS ne ON a.idEventoFK = ne.IdEvento";
+   $this->conexion->ejecutar($consulta);
+}
     function adicionar()
     {
             $sentenciaSql = "INSERT INTO asistenteevento
