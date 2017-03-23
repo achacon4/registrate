@@ -41,28 +41,27 @@ class CategoriaModel
 				$query = "INSERT INTO categoria (nombreCategoria) VALUES ('$this->nombreCategoria')";
 				$resultQuery = $this->conexion->ejecutar($query);
 				if($this->conexion->obtenerNumeroRegistros($this->conexion)>0){
-		     		echo json_encode("Registro exitoso!");
+		     		echo json_encode(Array("resultado"=>"Registro exitoso!"));
 				}else{
-					echo json_encode("Error!");
+					echo json_encode(Array("resultado"=>"Error!"));
 				}
 		}
 		catch(Exception $e){
-			echo $e->getMessage();
+			echo json_encode(Array("resultado"=>"Ocurrio un error al registrar la categoria."));
 		}
 	}
 
 	public function actualizarCategoria($nomCategoria){
 		$this->nombreCategoria = $nomCategoria[0]["categoria"];
                 $nombre = $nomCategoria[0]["nombreCategoria"];
-                echo json_encode($nombre);
 		try{
 
 				$query = "UPDATE categoria SET nombreCategoria = '$nombre' WHERE idCategoria =".$this->nombreCategoria;
 				$resultQuery = $this->conexion->ejecutar($query);
 				if($this->conexion->obtenerNumeroRegistros($this->conexion)>0){
-		     		echo json_encode("Actualizacion exitoso!");
+		     		echo json_encode(Array("resultado"=>"Cambio efectuado con exito!"));
 				}else{
-					echo json_encode("Error!");
+					echo json_encode(Array("resultado"=>"Error!"));
 				}
 		}
 		catch(Exception $e){
@@ -77,13 +76,13 @@ class CategoriaModel
 				$query = "DELETE FROM categoria WHERE idCategoria =".$this->nombreCategoria;
 				$resultQuery = $this->conexion->ejecutar($query);
 				if($this->conexion->obtenerNumeroRegistros($this->conexion)>0){
-		     		echo json_encode(array("respuesta"=>"Elimino exitoso!"));
+		     		echo json_encode(array("resultado"=>"Elimino efectuado!"));
 				}else{
-					echo json_encode("Error!");
+					echo json_encode(Array("resultado"=>"Error al eliminar!"));
 				}
 		}
 		catch(Exception $e){
-			echo $e->getMessage();
+			echo json_encode(Array("resultado"=>"Ocurrio un error: La categoria no se puede eliminar por que tiene una dependecia de llave FK"));
 		}
 	}
         
