@@ -12,6 +12,7 @@ class AsistenteEvento{
     private $numeroDocumento;
     private $email;
     private $telefono;
+    private $estado;
     
     function getEstado() {
         return $this->estado;
@@ -21,7 +22,6 @@ class AsistenteEvento{
         $this->estado = $estado;
     }
 
-        
     function getIdAsistenteEvento() {
         return $this->idAsistenteEvento;
     }

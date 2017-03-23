@@ -45,7 +45,9 @@ $(function (){
                    alert(resultado.mensaje);
                    return false;
                }
+               alert(resultado.mensaje);
                crearListado(resultado.data.asistentes);
+               limpiar();
            },error:function(xhr, status, error){
                alert("error" + error);
            }
@@ -62,6 +64,12 @@ function validarVacios(){
     }
     return true;
 }
+
+function limpiar(){
+    $("#txtEvento").val('');
+    $("#listadoAsistentes").remove();
+}
+
 function crearListado(_asistentes){
     var contador = 0;
     asistentes = _asistentes;
