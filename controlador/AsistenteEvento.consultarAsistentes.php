@@ -1,6 +1,6 @@
 <?php
 require_once '../modelo/Evento.php';
-require_once '../entidad/RegistroAsistente.php';
+require_once '../entidad/AsistenteEvento.php';
 
 $retorno = array("exito"=>1,"mensaje"=>"","data"=>array("asistentes"=>array()));
 
