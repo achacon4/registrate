@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Registro Asistente</title>
+        <title>Asistente Evento</title>
         <script src="../jquery/jquery.js" type="text/javascript"></script>
         <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
-        <script src="../js/FrmRegistroAsistente.js" type="text/javascript"></script>
+        <script src="../js/FrmAsistenteEvento.js" type="text/javascript"></script>
         <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
-        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<!--        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">-->
     </head>
     <body>
         <br>
@@ -18,6 +18,16 @@
                     <section id="secFormulario" class="panel-body">
                         <input name="idAsistenteEvento" id="idAsistenteEvento" type="hidden">
                         <input name="idEventoFK" id="idEventoFK" type="hidden" >
+                        
+                         <div class="form-group has-success has-feedback">
+                            <label for="inputSuccess3"  class="control-label col-sm-2">Evento :</label>
+                            <div class="col-sm-9">
+                                <input type="hidden" name="selEvento" id="selEvento">
+                                <input type="text"  name="txtEvento" id="txtEvento" class="form-control" >
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                            </div>
+                        </div>
                         <div class="form-group has-success has-feedback">
                             <label for="inputSuccess3"  class="control-label col-sm-2">Nombre:</label>
                             <div class="col-sm-9">
@@ -50,9 +60,9 @@
                             <div class="col-sm-9">
                                 <select name="selTipoDocumento" id="selTipoDocumento" class="form-control" aria-describedby="inputSuccess3Status">
                                             <option value="">--SELECCIONE--</option>
-                                            <option value="TI">Tarjeta de identidad</option>
-                                            <option value="CC">Cédula de ciudadanía</option>
-                                            <option value="CE">Cédula extranjera</option>
+                                            <option value="T.I">Tarjeta de identidad</option>
+                                            <option value="C.C">Cédula de ciudadanía</option>
+                                            <option value="C.E">Cédula extranjera</option>
                                             <option value="PSRTE">Pasaporte</option>
                                 </select>
                             </div>
@@ -86,14 +96,25 @@
                                     <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                     <span id="inputSuccess3Status" class="sr-only">(success)</span>
                             </div>
-                        </div>                    
+                        </div>    
+                          <div class="form-group has-success has-feedback">
+                            <label for="inputSuccess3"  class="control-label col-sm-2">Estado:</label>
+                            <div class="col-sm-9">
+                                <select id="selEstado"  class="form-control" name="selEstado">
+                                    <option value="CONFIRMADO">Confirmado</option>
+                                    <option value="SINCONFIRMAR">Sin Confirmar</option>
+                                    <option value="CANCELADO">Cancelado</option>
+                                </select>
+                                 
+                            </div>
+                        </div>  
                     </section>
                 </form>
                 <center>
                     <nav>
                     <br><input type='button' id='btnAdicionar' name='btnAdicionar' value='ADICIONAR' class="btn btn-primary">
                     <input type='button' id='btnConsultar' name='btnConsultar' value='CONSULTAR' class="btn btn-primary">
-                    <input type='button' id='btnEliminar' name='btnEliminar' value='ELIMINAR' class="btn btn-primary">
+                    <input type='button' id='btnModificar' name='btnModificar' value='MODIFICAR' class="btn btn-primary">
                     </nav>
                 </center>
                 <br>

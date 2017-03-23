@@ -35,7 +35,8 @@
        <input name="btnAdicionar" type="button" id="btnAdicionar" value="ADICIONAR" class="btn btn-danger">
        <input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
        <input name="btnConsultar" type="button" id="btnConsultar" value="CONSULTAR" class="btn btn-default">
-       <input name="btnLimpiar" type="button" id="btnLimpiar" value="ELIMINAR" class="btn btn-default">
+       <input name="btnEliminar" type="button" id="btnEliminar" value="ELIMINAR" class="btn btn-default">
+         <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-default">
     </nav>
 
     </form>

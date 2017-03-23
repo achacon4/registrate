@@ -1,8 +1,10 @@
 <?php
 namespace modelo;
-require_once '../entidad/RegistroAsistente.php';
+require_once '../entorno/Conexion.php';
+require_once '../entidad/AsistenteEvento.php';
 
-class RegistroAsistente 
+
+class AsistenteEvento
 {
     public $conexion;
 
@@ -15,9 +17,10 @@ class RegistroAsistente
     private $numeroDocumento;
     private $email;
     private $telefono;
+    private $estado;
 	
 
-	function _construct( \entidad\RegistroAsistente $asistente, $conexion =null){
+	function __construct(\entidad\AsistenteEvento $asistente, $conexion =null){
 
 			$this->idAsistenteEvento = $asistente->getIdAsistenteEvento();
 			$this->idEventoFK = $asistente->getIdEventoFK();
@@ -28,6 +31,7 @@ class RegistroAsistente
 			$this->numeroDocumento = $asistente->getNumeroDocumento();
 			$this->email = $asistente->getEmail();
 			$this->telefono = $asistente->getTelefono();
+                        $this->estado = $asistente->getEstado();
 
                       if($conexion==null)
                       {
@@ -43,7 +47,7 @@ class RegistroAsistente
     {
             $sentenciaSql = "INSERT INTO asistenteevento
                                     (
-                                      ,idEventoFK
+                                      idEventoFK
                                       ,nombre
                                       ,apaterno
                                       ,amaterno
@@ -51,11 +55,12 @@ class RegistroAsistente
                                       ,numeroDocumento
                                       ,email
                                       ,telefono
+                                      ,estado
                                     )
                                     VALUES
                                     (
                                    
-                                    ,$this->idEventoFK
+                                    ".$this->idEventoFK->getIdEvento()."
                                     ,'$this->nombre'
                                     ,'$this->apaterno'
                                     ,'$this->amaterno'
@@ -63,6 +68,7 @@ class RegistroAsistente
                                     ,'$this->numeroDocumento'
                                     ,'$this->email'
                                     ,'$this->telefono'
+                                    ,'$this->estado'
 
                                     )";
 
@@ -76,33 +82,22 @@ class RegistroAsistente
          $sentenciaSql = "UPDATE 
                             asistenteevento 
                                  SET 
-                                 idEventoFK= $this->idEventoFK
+                                 idEventoFK = ".$this->idEventoFK->getIdEvento()."
                                  ,nombre= '$this->nombre'
                                  ,apaterno= '$this->apaterno'
                                  ,amaterno= '$this->amaterno'
                                  ,tipoDocumento='$this->tipoDocumento'
                                  ,numeroDocumento= '$this->numeroDocumento'
-                                 ,fechaNacimiento='$this->fechaNacimiento'
                                  ,email= '$this->email'
                                  ,telefono= '$this->telefono' 
+                                 ,estado= '$this->estado' 
                                  WHERE 
                                  idAsistenteEvento = $this->idAsistenteEvento";
 
               $this->conexion->ejecutar($sentenciaSql);
           }
 
-      function eliminar()
-     {
-          $sentenciaSql = "DELETE FROM
-                            asistenteevento 
-                                 WHERE 
-                                  idAsistenteEvento = $this->idAsistenteEvento";
-
-
-
-         $this->conexion->ejecutar($sentenciaSql);
-     }
-
+      
 
      function consultarTodo()
      {
@@ -114,11 +109,18 @@ class RegistroAsistente
      function consultar()
      {
       $condicion = $this->obtenerCondicion() ;
-      $sentenciaSql = "SELECT * FROM   asistenteevento ".$condicion; 
+      $sentenciaSql = "SELECT 
+                            a.*
+                            ,ne.nombreEvento AS nombreEventos
+                        FROM 
+                         asistenteevento AS a
+                         INNER JOIN evento AS ne ON a.idEventoFK = ne.IdEvento
+                         
+          ".$condicion; 
       $this->conexion->ejecutar($sentenciaSql);
      }
-}
-function obtenerCondicion()
+     
+     function obtenerCondicion()
     {
        $condicion = '';
         $whereAnd = ' WHERE ';
@@ -128,7 +130,8 @@ function obtenerCondicion()
             $condicion = $condicion.$whereAnd."idAsistenteEvento = '". $this->idAsistenteEvento."'";
             $whereAnd = ' AND ';
         }
-        if($this->idEventoFK != '')
+         $idEvento = $this->idEventoFK->getIdEvento();
+        if($idEvento != '')
         {
             $condicion = $condicion.$whereAnd."idEventoFK = '". $this->idEventoFK."'";
             $whereAnd = ' AND ';
@@ -168,4 +171,8 @@ function obtenerCondicion()
             $condicion = $condicion.$whereAnd."telefono = '". $this->telefono."'";
             $whereAnd = ' AND ';
         }
+        return $condicion;
     }
+}
+
+

@@ -19,7 +19,7 @@ class Conexion{
         return $this->recordSet->fetch_object();
     }
     public function obtenerNumeroRegistros(){
-        return mysqli_affected_rows($this->conn);
+        return $this->recordSet->num_rows;
     }
     public function iniciarTransaccion() {
         $this->conn->query("START TRANSACTION");

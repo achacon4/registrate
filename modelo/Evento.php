@@ -24,18 +24,18 @@ class Evento
     
     function __construct(\Entidad\Evento $evento)
     {
-        $this->idEvento = $evento->getIdEvento;
-        $this->lugarFK = $evento->getLugarFK;
-        $this->datosPersonalesFK = $evento->getDatosPersonalesFK;
-        $this->categoriaFK = $evento->getCategoriaFK;
-        $this->nombreEvento = $evento->getNombreEvento;
-        $this->fechaInicial = $evento->getFechaInicial;
-        $this->fechaFinal = $evento->getFechaFinal;
-        $this->horaInicial = $evento->getHoraInicial;
-        $this->horaFinal = $evento->getHoraFinal;
-        $this->cantidadAsistentes = $evento->getCantidadAsistentes;
-        $this->descripcionEvento = $evento->getDescripcionEvento;
-        $this->estadoEvento = $evento->getEstadoEvento;
+        $this->idEvento = $evento->getIdEvento();
+        $this->lugarFK = $evento->getLugarFK();
+        $this->datosPersonalesFK = $evento->getDatosPersonalesFK();
+        $this->categoriaFK = $evento->getCategoriaFK();
+        $this->nombreEvento = $evento->getNombreEvento();
+        $this->fechaInicial = $evento->getFechaInicial();
+        $this->fechaFinal = $evento->getFechaFinal();
+        $this->horaInicial = $evento->getHoraInicial();
+        $this->horaFinal = $evento->getHoraFinal();
+        $this->cantidadAsistentes = $evento->getCantidadAsistentes();
+        $this->descripcionEvento = $evento->getDescripcionEvento();
+        $this->estadoEvento = $evento->getEstadoEvento();
         
         $this->conexion = new \Conexion();
     }
@@ -105,17 +105,20 @@ class Evento
         $this->conexion->ejecutar($sentenciaSql);
     }
 
-    function consultar(){
+    function consultar()
+    {
+        $condicion = $this->obtenerCondicion();
         $sentenciaSql= "SELECT 
                             e.*
-                            , l.lugar AS lugarFK
-                            , dp.datospersonales AS datosPersonalesFK
-                            , c.categoria AS categoriaFK
+                            , l.nombre AS lugarFK
+                            , dp.nombre AS datosPersonalesFK
+                            , c.nombreCategoria AS categoriaFK
                         FROM 
                             evento AS e
                             INNER JOIN lugar AS l ON e.idLugarFK = l.idLugar
                             INNER JOIN datospersonales AS dp ON e.idDatosPersonalesFK = dp.idDatosPersonales
                             INNER JOIN categoria AS c ON e.idCategoriaFK = c.idCategoria
+                        $condicion
                         ";
         $this->conexion->ejecutar($sentenciaSql);
     }
@@ -148,5 +151,37 @@ class Evento
                             and estado <> 'CANCELADO'
                         ";
         $this->conexion->ejecutar($sentenciaSql);     
+    }
+    
+    function obtenerCondicion()
+    {
+        $condicion = '';
+        $whereAnd = ' WHERE ';
+        
+        if($this->idEvento != '')
+        {
+            $condicion = $condicion.$whereAnd." e.idEvento = ".$this->idEvento;
+            $whereAnd = ' AND ';
+        }
+        
+        if($this->lugarFK->getIdLugar() != '')
+        {
+            $condicion = $condicion.$whereAnd." e.idLugarFK = ".$this->lugarFK->getIdLugar();
+            $whereAnd = ' AND ';
+        }
+        
+        if($this->datosPersonalesFK->getIdDatosPersonales() != '')
+        {
+            $condicion = $condicion.$whereAnd." e.idDatosPersonalesFK  = ".$this->datosPersonalesFK->getIdDatosPersonales();
+            $whereAnd = ' AND ';
+        }
+        
+        if($this->categoriaFK->getIdCategoria() != '')
+        {
+            $condicion = $condicion.$whereAnd." e.idCategoriaFK = ".$this->categoriaFK->getIdCategoria();
+            $whereAnd = ' AND ';
+        }
+        
+        return $condicion;
     }
 }
