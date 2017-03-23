@@ -81,5 +81,16 @@ Class Lugar {
         $sentenciaSql = "SELECT * FROM lugar";
         $this->conexion->ejecutar($sentenciaSql);
     }
-
+    
+    function consultarAjaxLugar($valor, $limite = '')
+    {
+        $sentenciaSql = "SELECT
+                            l.idLugar
+                            , l.nombre
+                        FROM
+                            lugar AS l
+                        WHERE l.nombre LIKE '%$valor%'
+                        $limite";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
 }
