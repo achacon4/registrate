@@ -5,7 +5,10 @@ class Conexion{
     
     function __construct(){
         //$this->conn = new PDO("mysql:host=localhostooo;port=3306;dbname=clientes;charset=utf8", "root", "123");
+
+        //$this->conn = new mysqli('localhost','root','1234', 'registrate');
         $this->conn = new mysqli('localhost','root','123', 'registrate');
+
         //$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     
@@ -19,7 +22,7 @@ class Conexion{
         return $this->recordSet->fetch_object();
     }
     public function obtenerNumeroRegistros(){
-        return mysqli_affected_rows($this->conn);
+        return $this->recordSet->num_rows;
     }
     public function iniciarTransaccion() {
         $this->conn->query("START TRANSACTION");

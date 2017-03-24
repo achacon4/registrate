@@ -1,8 +1,9 @@
 <?php
 namespace modelo;
-require_once '../entidad/RegistroAsistente.php';
+require_once '../entorno/Conexion.php';
+require_once '../entidad/AsistenteEvento.php';
 
-class RegistroAsistente 
+class AsistenteEvento 
 {
     public $conexion;
 
@@ -15,9 +16,10 @@ class RegistroAsistente
     private $numeroDocumento;
     private $email;
     private $telefono;
+    private $estado;
 	
 
-	function _construct( \entidad\RegistroAsistente $asistente, $conexion =null){
+	function __construct(\entidad\AsistenteEvento $asistente, $conexion = null){
 
 			$this->idAsistenteEvento = $asistente->getIdAsistenteEvento();
 			$this->idEventoFK = $asistente->getIdEventoFK();
@@ -28,16 +30,15 @@ class RegistroAsistente
 			$this->numeroDocumento = $asistente->getNumeroDocumento();
 			$this->email = $asistente->getEmail();
 			$this->telefono = $asistente->getTelefono();
-
-                      if($conexion==null)
-                      {
-                          $this->conexion = new \Conexion();
-                      }else
-                      {
-                          $this->conexion = $conexion;
-                      }
+                        $this->estado = $asistente->getEstado();
+                     
+                        if($conexion == null){
+                            $this->conexion = new \Conexion();
+                        }else{
+                            $this->conexion = $conexion;
+                        }
 			
-}
+        }
 
     function adicionar()
     {
@@ -51,6 +52,7 @@ class RegistroAsistente
                                       ,numeroDocumento
                                       ,email
                                       ,telefono
+                                      ,estado
                                     )
                                     VALUES
                                     (
@@ -63,13 +65,18 @@ class RegistroAsistente
                                     ,'$this->numeroDocumento'
                                     ,'$this->email'
                                     ,'$this->telefono'
-
+                                    ,'$this->estado'
                                     )";
 
                 $this->conexion->ejecutar($sentenciaSql);
     }
 
-
+    function modificarEstado($idAsistenteEvento, $estado){
+           
+        $sentenciaSql = "UPDATE asistenteevento SET  estado = '$estado' WHERE idAsistenteEvento = $idAsistenteEvento";
+        $this->conexion->ejecutar($sentenciaSql);
+        
+    }
 
     function modificar()
      {
@@ -85,6 +92,7 @@ class RegistroAsistente
                                  ,fechaNacimiento='$this->fechaNacimiento'
                                  ,email= '$this->email'
                                  ,telefono= '$this->telefono' 
+                                 ,estado = '$this->estado'
                                  WHERE 
                                  idAsistenteEvento = $this->idAsistenteEvento";
 

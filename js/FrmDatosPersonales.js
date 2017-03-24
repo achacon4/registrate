@@ -123,10 +123,11 @@ function crearListado(DatosPersonales){
     $("#txtNumeroDocumento").val(DatosPersonales[0].numeroDocumento);
     $("#txtEmail").val(DatosPersonales[0].email);
     $("#txtTelefono").val(DatosPersonales[0].telefono);
+    $("#selEstado").val(DatosPersonales[0].estado);
          
     }else{
-        var listado = '<table class="table" id="tblListado">'+
-                 '<tr><td>Nombre</td>\n\
+        var listado = '<table class="table"  id="tblListado">'+
+                 '<tr class="active"><td>Nombre</td>\n\
                   <td>Primer Apellido</td>\n\
                   <td>Segundo Apellido</td>\n\
                   <td>Tipo Documento</td>\n\
@@ -163,6 +164,7 @@ function limpiar(){
     $("#txtNumeroDocumento").val('');
     $("#txtEmail").val('');
     $("#txtTelefono").val('');
+    $("#selEstado").val('');
 }
  function validarVacios(){
         if(document.getElementById("txtNombre").value ===''){
