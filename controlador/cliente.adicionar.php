@@ -30,8 +30,7 @@ try{
 
     $clienteE->setTelefonos($telefonos);
     
-    $clienteM = new \modelo\Cliente($clienteE, null);
-    
+    $clienteM = new \modelo\Cliente($clienteE, null);  
     $clienteM->conexion->iniciarTransaccion();
     $clienteM->adicionar();
     

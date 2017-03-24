@@ -1,6 +1,8 @@
 <?php
+namespace entidad;
+require_once '../modelo/Evento.php';
 
-class VerificacionAsistente{
+class AsistenteEvento{
     private $idAsistenteEvento;
     private $idEventoFK;
     private $nombre;
@@ -10,7 +12,16 @@ class VerificacionAsistente{
     private $numeroDocumento;
     private $email;
     private $telefono;
+    private $estado;
     
+    function getEstado() {
+        return $this->estado;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
+
     function getIdAsistenteEvento() {
         return $this->idAsistenteEvento;
     }
@@ -51,7 +62,7 @@ class VerificacionAsistente{
         $this->idAsistenteEvento = $idAsistenteEvento;
     }
 
-    function setIdEventoFK($idEventoFK) {
+    function setIdEventoFK(\entidad\Evento $idEventoFK) {
         $this->idEventoFK = $idEventoFK;
     }
 
