@@ -7,7 +7,7 @@ class Conexion{
         //$this->conn = new PDO("mysql:host=localhostooo;port=3306;dbname=clientes;charset=utf8", "root", "123");
 
         //$this->conn = new mysqli('localhost','root','1234', 'registrate');
-        $this->conn = new mysqli('localhost','root','123', 'registrate');
+        $this->conn = new mysqli('localhost','root','', 'registrate');
 
         //$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
@@ -17,6 +17,22 @@ class Conexion{
         if($this->recordSet == FALSE){
             throw new Exception("Error al ejecutar la sentencia".$sentenciaSql);
         }
+    }
+    
+     public function ejecutarAsistenciaConfirmada($sentenciaSql){
+        $this->recordSet = $this->conn->query($sentenciaSql);
+        if ($this->recordSet == FALSE) 
+            throw new Exception("Error ejecutando la sentencia: ".$sentenciaSql);
+    }
+    public function ejecutarAsistenciaNoConfirmada($sentenciaSql){
+        $this->recordSet = $this->conn->query($sentenciaSql);
+        if ($this->recordSet == FALSE) 
+            throw new Exception("Error ejecutando la sentencia: ".$sentenciaSql);
+    }
+    public function ejecutarAsistenciaCancelado($sentenciaSql){
+        $this->recordSet = $this->conn->query($sentenciaSql);
+        if ($this->recordSet == FALSE) 
+            throw new Exception("Error ejecutando la sentencia: ".$sentenciaSql);
     }
     public function obtenerObjeto(){
         return $this->recordSet->fetch_object();
