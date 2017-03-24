@@ -6,8 +6,7 @@ class Conexion{
     function __construct(){
         //$this->conn = new PDO("mysql:host=localhostooo;port=3306;dbname=clientes;charset=utf8", "root", "123");
 
-        //$this->conn = new mysqli('localhost','root','1234', 'registrate');
-        $this->conn = new mysqli('localhost','root','123', 'registrate');
+        $this->conn = new mysqli('10.73.188.71:3306','registrate','1234.abcD*', 'registrate', 3306);
 
         //$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
