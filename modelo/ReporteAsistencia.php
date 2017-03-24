@@ -46,7 +46,7 @@ class ReporteAsistencia{
                             estado = 'CONFIRMADO'
                        ";
 
-        $this->conexion->ejecutarAsistenciaConfirmada($sentenciaSql);
+        $this->conexion->ejecutar($sentenciaSql);
     }
     
     function consultarAsistenciaNoConfirmada(){
@@ -58,7 +58,7 @@ class ReporteAsistencia{
                             estado = 'SIN CONFIRMAR'
                        ";
 
-        $this->conexion->ejecutarAsistenciaNoConfirmada($sentenciaSql);
+        $this->conexion->ejecutar($sentenciaSql);
     }
     
     function consultarAsistenciaCancelada(){
@@ -69,7 +69,7 @@ class ReporteAsistencia{
                         WHERE
                             estado = 'CANCELADO'
                        ";
-        $this->conexion->ejecutarAsistenciaCancelado($sentenciaSql);
+        $this->conexion->ejecutar($sentenciaSql);
     }
     
         function obtenerCondicion(){
