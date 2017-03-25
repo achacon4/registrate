@@ -1,11 +1,13 @@
 ﻿<!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Formulario Eventos</title>
         <script src="../jquery/jquery.js" type="text/javascript"></script>
         <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../jquery/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="../jquery/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="../jquery/jquery-ui-timepicker-addon.js"></script>
         <script src="../js/FrmEvento.js" type="text/javascript"></script>
         <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
@@ -15,7 +17,7 @@
     <body>
         <header>
             <h1>
-                <center>Evento</center>
+                <center>Eventos</center>
             </h1>
         </header>
 
@@ -30,86 +32,95 @@
                             
                             <div class="tr">
                                 <div class="tdTexto">
-                                    Lugar Evento
+                                    *Lugar Evento
                                 </div>
                                 
                                 <div class="td">
-                                    <select name="selLugarEvento" id="selLugarEvento" class="form-control tamanioTexto">
+                                    <input type="hidden" name="selLugarEvento" id="selLugarEvento">
+                                    <input type="text" name="txtLugarEvento" id="txtLugarEvento" class="form-control">
+                                    
+<!--                                    <select name="selLugarEvento" id="selLugarEvento" class="form-control tamanioTexto">
                                         <option value="">-SELECCIONE--</option>
-                                    </select>
+                                    </select>-->
                                 </div>
                             </div>
                             
                             <div class="tr">
                                 <div class="tdTexto">
-                                    Datos Personales
+                                    *Datos Personales
                                 </div>
                                 
                                 <div class="td">
-                                    <select name="selDatosPersonales" id="selDatosPersonales" class="form-control tamanioTexto">
+                                    <input type="hidden" name="selDatosPersonales" id="selDatosPersonales">
+                                    <input type="text" name="txtDatosPersonales" id="txtDatosPersonales" class="form-control">
+                                    
+<!--                                    <select name="selDatosPersonales" id="selDatosPersonales" class="form-control tamanioTexto">
                                         <option value="">-SELECCIONE--</option>
-                                    </select>
+                                    </select>-->
                                 </div>
                             </div>
                             
                             <div class="tr">
                                 <div class="tdTexto">
-                                    Categoria Evento
+                                    *Categoria Evento
                                 </div>
                                 
                                 <div class="td">
-                                    <select name="selCategoriaEvento" id="selCategoriaEvento" class="form-control tamanioTexto">
+                                    <input type="hidden" name="selCategoriaEvento" id="selCategoriaEvento">
+                                    <input type="text" name="txtCategoriaEvento" id="txtCategoriaEvento" class="form-control">
+                                    
+<!--                                    <select name="selCategoriaEvento" id="selCategoriaEvento" class="form-control tamanioTexto">
                                         <option value="">-SELECCIONE--</option>
-                                    </select>
+                                    </select>-->
                                 </div>
                             </div>
 
                             <div class="tr">	
-                                <div class="tdTexto">Nombre Evento </div>
+                                <div class="tdTexto">*Nombre Evento </div>
                                 <div class="td">
                                     <input name="txtNombreEvento" type="text" id="txtNombreEvento" class="form-control tamanioTexto">
                                 </div>
                             </div>
 
                             <div class="tr">
-                                <div class="tdTexto">Fecha Inicial </div>
+                                <div class="tdTexto">*Fecha Inicial </div>
                                     <div class="td">
                                         <input name="dtFechaInicial" type="date" id="dtFechaInicial" class="form-control tamanioTexto">
                                     </div>
                             </div>
 
                             <div class="tr">
-                                <div class="tdTexto">Fecha Final </div>
+                                <div class="tdTexto">*Fecha Final </div>
                                     <div class="td">
                                         <input name="dtFechaFinal" type="date" id="dtFechaFinal" class="form-control tamanioTexto">
                                     </div>
                             </div>
 
                             <div class="tr">
-                                <div class="tdTexto">Hora Inicial</div>
+                                <div class="tdTexto">*Hora Inicial</div>
                                     <div class="td">
-                                        <input name="tmHoraInicial" type="time" id="tmHoraInicial" class="form-control tamanioTexto">
+                                        <input name="tmHoraInicial" type="text" id="tmHoraInicial" class="form-control tamanioTexto">
                                     </div>
                             </div>
 
                             <div class="tr">
-                                <div class="tdTexto">Hora Final </div>
+                                <div class="tdTexto">*Hora Final </div>
                                     <div class="td">
                                         <input name="tmHoraFinal" type="time" id="tmHoraFinal" class="form-control tamanioTexto">
                                     </div>
                             </div>
 
                             <div class="tr">
-                                <div class="tdTexto">Cantidad Asistentes </div>
+                                <div class="tdTexto">*Cantidad Asistentes </div>
                                     <div class="td">
                                         <input name="txtCantidadAsistentes" type="text" id="txtCantidadAsistentes" class="form-control tamanioTexto">
                                     </div>
                             </div>
 
                             <div class="tr">
-                                <div class="tdTexto">Descripción Evento </div>
+                                <div class="tdTexto">*Descripción Evento </div>
                                     <div class="td">
-                                        <input name="txtDescripcionEvento" type="text" id="txtDescripcionEvento" class="form-control tamanioTexto">
+                                        <textarea name="txtDescripcionEvento" type="text" id="txtDescripcionEvento" class="form-control tamanioTexto"></textarea>
                                     </div>
                             </div>
 
@@ -135,7 +146,7 @@
                 </nav>
 
                 <section id="secListado">
-                    <table id="tblListado" class="table">
+                    <table id="tbListado" class="table">
                         <tr>
                             <td>Lugar </td>
                             <td>Datos Personales </td>

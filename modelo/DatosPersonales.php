@@ -83,6 +83,18 @@ class DatosPersonales{
         $this->conexion->ejecutar($sentenciaSql);
     }
     
+    function consultarAjaxDatosPersonales($valor, $limite = '')
+    {
+        $sentenciaSql = "SELECT
+                            dp.idDatosPersonales
+                            , dp.nombre
+                        FROM
+                            datospersonales AS dp
+                        WHERE dp.nombre LIKE '%$valor%'
+                        $limite";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+    
     function modificar(){
         $sentenciaSql= "UPDATE
                             datospersonales
