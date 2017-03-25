@@ -1,4 +1,5 @@
 <?php
+namespace modelo;
 
 require_once("../entorno/Conexion.php");
 require_once '../entidad/Categoria.php';
@@ -15,7 +16,7 @@ class Categoria
         $this->idCategoria = $categoria->getIdCategoria();
         $this->nombreCategoria = $categoria->getNombreCategoria();
         
-        $this->conexion = new Conexion();
+        $this->conexion = new \Conexion();
     }
     
     function adicionar()

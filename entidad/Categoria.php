@@ -1,4 +1,5 @@
 <?php
+namespace entidad;
 
 class Categoria
 {
