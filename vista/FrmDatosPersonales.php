@@ -76,7 +76,7 @@
                     <br>
                     <div class="tr">
                         <div class="tdTexto">Estado: </div>
-                        <div class="td" id="selEstados">
+                        <div class="td">
                             <select name="selEstado" id="selEstado" class="form-control tamanioTexto">
                                 <option value="">---SELECCIONE---</option>
                                 <option>A</option>
