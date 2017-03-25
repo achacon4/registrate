@@ -5,6 +5,7 @@
 <title></title>
 <script src="../jquery/jquery.js" type="text/javascript"></script>
 <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
+<script src="../js/FrmCategoria.js" type="text/javascript"></script>
 <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
 <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 <link type="text/css" rel="stylesheet" href="../css/FrmCliente.css">
@@ -38,9 +39,16 @@
        <input name="btnEliminar" type="button" id="btnEliminar" value="ELIMINAR" class="btn btn-default">
          <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-default">
     </nav>
+    
+        <section id="secListado">
+                    <table id="tbListado" class="table">
+                        <tr>
+                            <td>Nombre de la Categoria </td>
+                        </tr>
+                    </table>
+                </section>
 
     </form>
-    <div name="resultado" id="resultado"></div>
 </section>
 <script src="../js/categoria.js" type="text/javascript"></script>
 </body>
