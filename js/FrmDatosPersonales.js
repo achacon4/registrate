@@ -126,6 +126,10 @@ function crearListado(DatosPersonales){
     $("#selEstado").val(DatosPersonales[0].estado);
          
     }else{
+        var estado= '<select name="selEstado" id="selEstado" class="form-control tamanioTexto">'
+                    +' <option value="">---SELECCIONE---</option>'
+                    +' <option>A</option>'
+                    +' <option>I</option>';
         var listado = '<table class="table"  id="tblListado">'+
                  '<tr class="active"><td>Nombre</td>\n\
                   <td>Primer Apellido</td>\n\
@@ -146,8 +150,11 @@ function crearListado(DatosPersonales){
                                               +datos.telefono+'</td><td>'
                                               +datos.estado+'</td></tr>';
               });
+              estado=estado +'</select>';
                listado = listado+'</table>';    
                $('#secListado').html(listado);
+                $('#selEstado').html(estado);
+               
            }
 }
 function seleccionarRegistro(idDatosPersonales){

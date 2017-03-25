@@ -13,6 +13,7 @@ try {
     $numeroDocumento = filter_input(INPUT_POST, 'txtNumeroDocumento');
     $email = filter_input(INPUT_POST, 'txtEmail');
     $telefono = filter_input(INPUT_POST, 'txtTelefono');
+    $estado = filter_input(INPUT_POST, 'selEstado');
     
     $clienteE = new \entidad\DatosPersonales();
         $clienteE->setIdDatosPersonales($idDatosPersonales);
@@ -24,7 +25,7 @@ try {
            
         $clienteE->setEmail($email);
         $clienteE->setTelefono($telefono);
-        $clienteE->setEstado('A');
+        $clienteE->setEstado($estado);
         
         $clienteM = new \modelo\DatosPersonales($clienteE,null);
        
