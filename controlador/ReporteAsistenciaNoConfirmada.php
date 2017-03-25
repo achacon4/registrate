@@ -1,14 +1,15 @@
 <?php
 
-require_once '../modelo/ReporteAsistencia.php';
-require_once '../entidad/AsistenteEvento.php';
+require_once '../modelo/Evento.php';
+require_once '../entidad/Evento.php';
 
 $retorno = array("exito"=>1,"mensaje"=>"","data"=>array("datos"=>array()));
 
 try {
-        $clienteE = new \entidad\AsistenteEvento(); 
-        $clienteM = new \modelo\ReporteAsistencia($clienteE);
-        $clienteM->consultarAsistenciaNoConfirmada();
+     $idEvento = filter_input(INPUT_POST, 'selEvento');
+        $clienteE = new \entidad\Evento(); 
+        $clienteM = new \modelo\Evento($clienteE);
+        $clienteM->consultarAsistenciaNoConfirmada($idEvento);
         
         $numeroRegistros = $clienteM->conexion->obtenerNumeroRegistros();
         $retorno['data']['numeroRegistros'] = $numeroRegistros;

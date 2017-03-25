@@ -3,28 +3,41 @@
   var total3;
    var suma;
 $(function (){
-   $.ajax ({
+    
+     $("#txtEvento").autocomplete({
+                  source: '../controlador/Evento.consultar.ajax.php'
+                  ,select:function (event, ui){
+                      $("#selEvento").val(ui.item.id);
+                  }
+              });
+     $("#btnConsultarAsistente").click(function(){
+            
+               
+           var data = $("#frmReporteAsistencia").serialize();
+
+       $.ajax ({
             url:'../controlador/ReporteAsistenciaConfirmada.php' 
             , type:'POST'
             , dataType:'json'
-            , data:null
+            , data:data
             ,success:function (resultado){
                if(resultado.exito === 0){
                    alert(resultado.mensaje);
                    return false;
                }   
               crearListadoAsistenciaConfirmada(resultado.data.datos);
-               
+          
+
             }, error:function(xhr,status,error){
                 alert("eror"+error);
             }
         });
-//-----------------------------------------------------------------------        
- $.ajax({
+        //-------------------------------------
+        $.ajax({
         url:'../controlador/ReporteAsistenciaNoConfirmada.php',
         type:'POST',
         dataType:'json',
-        data:null,
+        data:data,
         success:function(resultado){
             if(resultado.exito === 0){
                 alert(resultado.mensaje);
@@ -37,13 +50,12 @@ $(function (){
                 alert("Error: "+error);
             }
     });
-    
-    //----------------------------------------------------------------
+    //---------------------------------------------------------
      $.ajax({
         url:'../controlador/ReporteAsistenciaCancelada.php',
         type:'POST',
         dataType:'json',
-        data:null,
+        data:data,
         success:function(resultado){
             if(resultado.exito === 0){
                 alert(resultado.mensaje);
@@ -55,7 +67,8 @@ $(function (){
         }, error:function (xhr, status, error){
                 alert("Error: "+error);
             }
-    });
+       });
+    });  
 
 });
 

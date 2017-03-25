@@ -8,7 +8,7 @@ class Conexion{
 
         //$this->conn = new mysqli('localhost','root','1234', 'registrate');
         $this->conn = new mysqli('localhost','root','123', 'registrate');
-        //$this->conn = new mysqli('10.73.188.71:3306','registrate','1234.abcD*', 'registrate', 3306);
+//        $this->conn = new mysqli('10.73.188.71:3306','registrate_user','1234.abcD*', 'registrate', 3306);
 
 
         //$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -16,10 +16,24 @@
                 <h2>Asistencias de los eventos</h2>
             </header>
             <br>
+            
             <section id="secPrincipal">
-                <form name="frmDatosPersonales" id="frmDatosPersonales" action="" method="POST">
-
+                <form name="frmReporteAsistencia" id="frmReporteAsistencia" action="" method="POST">
+                    <section id="secPrincipal">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="selEvento" id="selEvento">
+                                    Nombre del Evento:<input type="text" name="txtEvento" id="txtEvento" class="form-control" placeholder="Nombre del Evento">
+                                </td>
+                                <td>
+                                    <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
                     <br>
+                    <label>ASISTENCIA CONFIRMADAS</label>
                     <section id="secListado">
                         <table class="table table-bordered" >
                             <tr class="active">
@@ -36,7 +50,7 @@
                         </table>
                     </section>
                     
-                    
+                    <label>ASISTENCIA SIN CONFIRMAR</label>
                     <section id="secListado1">
                         <table class="table table-bordered" >
                             <tr class="active">
@@ -53,7 +67,7 @@
                         </table>
                     </section>
                     
-                    
+                    <label>ASISTENCIA CANCELADAS</label>
                     
                     
                      <section id="secListado2">

@@ -153,6 +153,50 @@ class Evento
         $this->conexion->ejecutar($sentenciaSql);     
     }
     
+     function consultarAsistenciaConfirmada($idEvento){
+     
+        $sentenciaSql= "SELECT 
+                          *
+                        FROM 
+                          asistenteevento
+                        WHERE
+                        idEventoFK = $idEvento
+                           and estado = 'CONFIRMADO'
+                       ";
+
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+    
+    function consultarAsistenciaNoConfirmada($idEvento){
+     
+        $sentenciaSql= "SELECT 
+                          *
+                        FROM 
+                          asistenteevento
+                        WHERE
+                        idEventoFK = $idEvento
+                           and estado = 'SIN CONFIRMAR'
+                         
+                          
+                    ";
+
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+    
+    function consultarAsistenciaCancelada($idEvento){
+       
+        $sentenciaSql= "SELECT 
+                          *
+                        FROM 
+                          asistenteevento
+                        WHERE
+                            idEventoFK = $idEvento
+                            and estado = 'CANCELADO'
+                         
+                       ";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+   
     function obtenerCondicion()
     {
         $condicion = '';
