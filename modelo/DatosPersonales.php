@@ -125,15 +125,15 @@ class DatosPersonales{
             $whereAnd = ' AND ';
         }
         if($this->apaterno != ''){
-            $condicion = $condicion.$whereAnd." apaterno = ".$this->apaterno;
+            $condicion = $condicion.$whereAnd." apaterno LIKE '%".$this->apaterno."%'";
             $whereAnd = ' AND ';
         }
         if($this->amaterno != ''){
-            $condicion = $condicion.$whereAnd." amaterno = ".$this->amaterno;
+            $condicion = $condicion.$whereAnd." amaterno LIKE '%".$this->amaterno."%'";
             $whereAnd = ' AND ';
         }
-        if($this->tipoDocumento != ''){
-            $condicion = $condicion.$whereAnd." tipoDocumento = ".$this->tipoDocumento;
+         if($this->tipoDocumento != ''){
+            $condicion = $condicion.$whereAnd." tipoDocumento = '".$this->tipoDocumento."'";
             $whereAnd = ' AND ';
         }
         if($this->numeroDocumento != ''){
@@ -141,7 +141,7 @@ class DatosPersonales{
             $whereAnd = ' AND ';
         }
         if($this->email != ''){
-            $condicion = $condicion.$whereAnd." email = ".$this->email;
+            $condicion = $condicion.$whereAnd." email LIKE '%".$this->email."%'";
             $whereAnd = ' AND ';
         }
         if($this->telefono != ''){

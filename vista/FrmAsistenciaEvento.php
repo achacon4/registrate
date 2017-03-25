@@ -27,7 +27,7 @@
                             Nombre del Evento:<input type="text" name="txtEvento" id="txtEvento" class="form-control" placeholder="Nombre del Evento">
                         </td>
                         <td>
-                            <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR ASITENTES</button>
+                            <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR</button>
                         </td>
                     </tr>
                 </table>
@@ -57,7 +57,7 @@
                 </div>
                 <div>
                     <center>
-                        <button type="button" name="btnGuardarAsistencia" id="btnGuardarAsistencia" class="btn btn-default btn-lg active">GUARDAR ASISTENCIA</button>
+                        <button type="button" name="btnGuardarAsistencia" id="btnGuardarAsistencia" class="btn btn-default btn-lg active">GUARDAR</button>
                     </center>
             </form>
         </section>
