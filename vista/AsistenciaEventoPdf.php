@@ -39,10 +39,10 @@
                 $contador = 0;
                 if($fila = $eventoM->conexion->obtenerObjeto()){
             ?>
-            <th><?php echo $fila->nombreEvento; ?></th>
-            <th><?php echo $fila->fechaInicial; ?></th>
-            <th><?php echo $fila->horaInicial; ?></th>
-            <th><?php echo $fila->horaFinal; ?></th>
+            <th id="izquierda"><?php echo $fila->nombreEvento; ?></th>
+            <th id="derecha"><?php echo $fila->fechaInicial; ?></th>
+            <th id="derecha"><?php echo $fila->horaInicial; ?></th>
+            <th id="derecha"><?php echo $fila->horaFinal; ?></th>
         </tr> 
         <?php
             $contador++;
@@ -53,8 +53,7 @@
     <table align="center">
         <tr>
             <th id="encabezados">NOMBRE</th>
-            <th id="encabezados">PRIMER APELLIDO</th>
-            <th id="encabezados">SEGUNDO APELLIDO</th>
+            <th id="encabezados">APELLIDOS</th>
             <th id="encabezados">TIPO DOCUMENTO</th>
             <th id="encabezados">NÚMERO DOCUMENTO</th>
             <th id="encabezados">ASISTENCIA</th>
@@ -65,12 +64,11 @@
                 while($fila = $asistentesM->conexion->obtenerObjeto()){
             ?>
         <tr>
-            <th><?php echo $fila->nombre; ?></th>
-            <th><?php echo $fila->apaterno; ?></th>
-            <th><?php echo $fila->amaterno; ?></th>
-            <th><?php echo $fila->tipoDocumento; ?></th>
-            <th><?php echo $fila->numeroDocumento; ?></th>
-            <th><?php echo $fila->estado; ?></th>
+            <th id="izquierda"><?php echo $fila->nombre; ?></th>
+            <th id="izquierda"><?php echo $fila->apaterno . ' '.$fila->amaterno; ?></th>
+            <th id="centrado"><?php echo $fila->tipoDocumento; ?></th>
+            <th id="derecha"><?php echo $fila->numeroDocumento; ?></th>
+            <th id="centrado"><?php echo $fila->estado; ?></th>
         </tr>
             <?php
                 $contador1++;
@@ -81,7 +79,7 @@
       <table id="pie" align="center">
           <tr>
             <th>
-                <h3 align="center">Proyecto Formativo Registr@-TE</h3><br>
+                <h3 align="center">Proyecto Formativo <span id="registrate">Registr@-TE</span></h3><br>
                 <h4 align="center">Tecnólogo en Análisis y Desarrollo de Sistemas de Información</h4><br>
                 <h4 align="center">FICHA: 1116897</h4></th>
           </tr>
