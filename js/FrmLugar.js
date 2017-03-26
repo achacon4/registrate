@@ -1,7 +1,7 @@
 $(function(){ 
 
     $("#txtNombre").autocomplete({
-        source: '../controlador/lugar.consultar.ajax.php',
+        source: '../controlador/Lugar.consultar.ajax.php',
         select: function(event, ui){
             $("#hidIdLugar").val(ui.item.id);
         }
