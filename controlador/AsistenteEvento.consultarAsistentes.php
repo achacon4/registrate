@@ -15,9 +15,9 @@ try{
     while ($fila = $eventoM->conexion->obtenerObjeto()){
         
         $retorno['data']['asistentes'][$contador]['idAsistenteEvento']= $fila->idAsistenteEvento;
-        $retorno['data']['asistentes'][$contador]['nombre']= $fila->nombre;
-        $retorno['data']['asistentes'][$contador]['apaterno']= $fila->apaterno;
-        $retorno['data']['asistentes'][$contador]['amaterno']= $fila->amaterno;
+        $retorno['data']['asistentes'][$contador]['nombre']= utf8_encode($fila->nombre);
+        $retorno['data']['asistentes'][$contador]['apaterno']= utf8_encode($fila->apaterno);
+        $retorno['data']['asistentes'][$contador]['amaterno']= utf8_encode($fila->amaterno);
         $retorno['data']['asistentes'][$contador]['tipoDocumento']= $fila->tipoDocumento;
         $retorno['data']['asistentes'][$contador]['numeroDocumento']= $fila->numeroDocumento;
         $retorno['data']['asistentes'][$contador]['telefono']= $fila->telefono;
