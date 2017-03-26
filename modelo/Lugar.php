@@ -51,12 +51,22 @@ Class Lugar {
 
                 $this->conexion->ejecutar($sentenciaSql);
     }
+    
+    function consultarAjax($valor, $limite = ''){
+        $sentenciaSql = "SELECT 
+                                e.idLugar,
+                                e.nombre
+                         FROM
+                            lugar AS e WHERE e.nombre LIKE '%$valor%'
+                            $limite";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
 
     function modificar(){
         $sentenciaSql= "UPDATE
                             lugar
                         SET
-                            nombre=".$this->nombre."
+                            nombre='$this->nombre'
                             ,disponibilidad='$this->disponibilidad'
                             ,descripcion='$this->descripcion' 
                             ,presupuesto='$this->presupuesto'
@@ -78,8 +88,37 @@ Class Lugar {
     }
 
     function consultar() {
-        $sentenciaSql = "SELECT * FROM lugar";
+        $condicion = $this->obtenerCondicion();
+        $sentenciaSql = "SELECT * FROM lugar $condicion";
         $this->conexion->ejecutar($sentenciaSql);
     }
-
+        function obtenerCondicion(){
+        $condicion = '';
+        $whereAnd = ' WHERE ';
+        if($this->idLugar != ''){
+            $condicion = $condicion.$whereAnd." idLugar = ".$this->idLugar;
+            $whereAnd = ' AND ';
+        }
+        if($this->nombre != ''){
+            $condicion = $condicion.$whereAnd." nombre LIKE '%".$this->nombre."%'";
+            $whereAnd = ' AND ';
+        }
+        if($this->disponibilidad != ''){
+            $condicion = $condicion.$whereAnd." disponibilidad = '".$this->disponibilidad."'";
+            $whereAnd = ' AND ';
+        }
+        if($this->descripcion != ''){
+            $condicion = $condicion.$whereAnd." descripcion = ".$this->descripcion;
+            $whereAnd = ' AND ';
+        }
+        if($this->presupuesto != ''){
+            $condicion = $condicion.$whereAnd." presupuesto = ".$this->presupuesto;
+            $whereAnd = ' AND ';
+        }
+       if($this->cantidadPersonas != ''){
+            $condicion = $condicion.$whereAnd." cantidadPersonas = ".$this->cantidadPersonas;
+            $whereAnd = ' AND ';
+        }
+        return $condicion;
+    }
 }
