@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +8,7 @@
         <script src="../jquery/jquery.js" type="text/javascript"></script>
         <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
         <script src="../js/FrmAsistenciaEvento.js" type="text/javascript"></script>
-        
+        <script src="../js/FrmAsistenciaEventoPdf.js" type="text/javascript"></script>
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     </head>
     <body>
@@ -58,7 +59,9 @@
                 <div>
                     <center>
                         <button type="button" name="btnGuardarAsistencia" id="btnGuardarAsistencia" class="btn btn-default btn-lg active">GUARDAR</button>
+                        <button type="button" name="btnReporte" id="btnReporte" class="btn btn-default btn-lg active">PDF</button>
                     </center>
+                </div>
             </form>
         </section>
     </body>

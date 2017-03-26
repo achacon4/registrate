@@ -153,6 +153,11 @@ class Evento
         $this->conexion->ejecutar($sentenciaSql);     
     }
     
+    function obtenerEvento($idEvento){
+        $sentenciaSql = "SELECT nombreEvento,fechaInicial,horaInicial,horaFinal FROM evento WHERE idEvento = ".$idEvento;
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+    
     function obtenerCondicion()
     {
         $condicion = '';

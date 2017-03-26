@@ -110,7 +110,7 @@ class AsistenteEvento
 
          $this->conexion->ejecutar($sentenciaSql);
      }
-
+     
 
      function consultarTodo()
      {
@@ -124,6 +124,22 @@ class AsistenteEvento
       $condicion = $this->obtenerCondicion() ;
       $sentenciaSql = "SELECT * FROM   asistenteevento ".$condicion; 
       $this->conexion->ejecutar($sentenciaSql);
+     }
+     
+     function obtenerAsistentes($idEvento){
+         $sentenciaSql = "SELECT nombre,
+                                apaterno,
+                                amaterno,
+                                tipoDocumento,
+                                numeroDocumento,
+                                estado 
+                         FROM 
+                            asistenteEvento 
+                         WHERE 
+                            estado <> 'CANCELADO' 
+                         AND 
+                            idEventoFK = $idEvento";
+         $this->conexion->ejecutar($sentenciaSql);
      }
 }
 function obtenerCondicion()
