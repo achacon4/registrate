@@ -12,7 +12,7 @@ $(function(){
             url: '../controlador/categoria.adicionar.php',
             type: 'POST',
             dataType: 'json',
-            data: data
+            data:data
             , success:function (resultado){
                 if (resultado.exito === 0)
                 {
@@ -55,11 +55,15 @@ $(function(){
         });
     });
     
+       $("#btnEliminar").click(function(){
+          eliminar();
+           });
     $("#btnConsultar").click(function (){  
         consultar();
     });
     
     $('#btnLimpiar').click(function(){
+        $("#secListado").html('');
         limpiar();
     });
 });
@@ -68,6 +72,7 @@ function limpiar()
 {
     $("#hidIdCategoria").val(''); 
     $("#txtNombreCategoria").val('');
+      
 }
 
 function crearListado(categorias){
@@ -118,6 +123,23 @@ function consultar()
         }
     });
 }
+ $('#btnEliminar').click(function(){
+	 		if(confirm("Desea continuar?")===false){
+	            		return  false;
+	        }
+		    var accion = "ELIMINAR"; 
+		    var categoria = $("#idCategoria").val(); 
+		    var datos = {"accion":accion,"categoria":categoria}; 
+		    $.ajax({
+		        url:'../controlador/categoria.eliminar.php', 
+		        type:'POST', 
+		        dataType:'json', 
+		        data:datos 
+		    }).done(function(data){
+		    	$('#resultado').empty();
+		        $('#resultado').text(data["resultado"]);
+		    });		   
+		});
 
 function validarVacios()
 {
@@ -129,7 +151,7 @@ function validarVacios()
     };
     
     return true;
-}
+};
 
 //function selecionarRegistro(id){
 //    $('#idCategoria').val(id);
@@ -149,10 +171,7 @@ function validarVacios()
 //    });                
 //}
 
-//    $('#btnEliminar').click(function () {
-//        var datos = {"accion": accion, "nombreCategoria": nombre};
-//        var accion = "ADICIONAR";
-//        var nombre = $("#txtNombreCategoria").val();
+
 //
 //        var datos = {"accion": accion, "nombre": nombre};
 //        $.ajax({
@@ -166,23 +185,7 @@ function validarVacios()
 //        });
 //    });
 
-//	 $('#btnEliminar').click(function(){
-//	 		if(confirm("Desea continuar?")===false){
-//	            		return  false;
-//	        }
-//		    var accion = "ELIMINAR"; 
-//		    var categoria = $("#idCategoria").val(); 
-//		    var datos = {"accion":accion,"categoria":categoria}; 
-//		    $.ajax({
-//		        url:'../controlador/categoria.eliminar.php', 
-//		        type:'POST', 
-//		        dataType:'json', 
-//		        data:datos 
-//		    }).done(function(data){
-//		    	$('#resultado').empty();
-//		        $('#resultado').text(data["resultado"]);
-//		    });		   
-//		});
+//	
       
 //	 $('#btnModificar').click(function (){
 //		    var accion = "MODIFICAR"; 
@@ -226,3 +229,26 @@ function validarVacios()
 //            tbl += "</table>";                                                                                             
 //        $("#resultado").html(tbl);
 //    });}
+//function eliminar(){
+//      
+//           var data = "hidIdCategoria".val();
+//                       
+//        $.ajax ({
+//            url:'../controlador/categoria.eliminar.php' 
+//            , type:'POST'
+//            , dataType:'json'
+//            ,data:data
+//          
+//            ,success:function (resultado){
+//             if(resultado.exito === 0){
+//                    alert(resultado.mensaje);
+//                    return false;
+//             }
+//             alert(resultado.mensaje);
+//              limpiar();
+//              consultar();
+//            }, error:function(xhr,status,error){
+//                alert("Error: "+error);
+//            }
+//        });
+//}

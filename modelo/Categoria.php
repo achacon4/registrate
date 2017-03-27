@@ -1,22 +1,25 @@
 <?php
 namespace modelo;
 
-require_once("../entorno/Conexion.php");
 require_once '../entidad/Categoria.php';
+require_once '../entorno/Conexion.php' ;
 
-class Categoria
-{
+class Categoria{
     public $conexion;
     
     private $idCategoria;
     private $nombreCategoria;
 
-    function __construct(\entidad\Categoria $categoria)
-    {
+    function __construct(\entidad\Categoria $categoria ,$conexion = null) {
+        
         $this->idCategoria = $categoria->getIdCategoria();
         $this->nombreCategoria = $categoria->getNombreCategoria();
-        
-        $this->conexion = new \Conexion();
+         
+        if($conexion == null){
+            $this->conexion = new \Conexion();
+        }else{
+        $this->conexion = $conexion();
+    }
     }
     
     function adicionar()
@@ -33,6 +36,50 @@ class Categoria
                         ";
         $this->conexion->ejecutar($sentenciaSql);
     }
+    function eliminar() {
+        $sentenciaSql = "DELETE FROM
+                            categoria
+                        WHERE
+                            idCategoria = $this->idCategoria
+                        ";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+//    		public function eliminarCategoria($nomCategoria){
+//		$this->nombreCategoria = $nomCategoria[0]["categoria"];
+//                echo $this->nombreCategoria;
+//		try{
+//				$query = "DELETE FROM categoria WHERE idCategoria =".$this->nombreCategoria;
+//				$resultQuery = $this->conexion->ejecutar($query);
+//				if($this->conexion->obtenerNumeroRegistros($this->conexion)>0){
+//		     		echo json_encode(array("resultado"=>"Elimino efectuado!"));
+//				}else{
+//					echo json_encode(Array("resultado"=>"Error al eliminar!"));
+//				}
+//		}
+//		catch(Exception $e){
+//			echo json_encode(Array("resultado"=>"Ocurrio un error: La categoria no se puede eliminar por que tiene una dependecia de llave FK"));
+//		}
+//	}
+
+    function consultar() {
+        $condicion = $this->obtenerCondicion();
+        $sentenciaSql = "SELECT
+                            *
+                        FROM
+                            categoria
+                        $condicion";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+      function consultarAjaxCategoria($valor, $limite = '') {
+        $sentenciaSql = "SELECT
+                            c.idCategoria
+                            , c.nombreCategoria
+                        FROM
+                            categoria AS c
+                        WHERE c.nombreCategoria LIKE '%$valor%'
+                        $limite";
+        $this->conexion->ejecutar($sentenciaSql);
+    }
     
     function modificar() {
         $sentenciaSql = "UPDATE
@@ -45,52 +92,27 @@ class Categoria
         $this->conexion->ejecutar($sentenciaSql);
     }
 
-    function eliminar() {
-        $sentenciaSql = "UPDATE 
-                            categoria
-                        SET
-                            nombreCategoria = $this->nombreCategoria
-                        WHERE
-                            idCategoria = $this->idCategoria
-                        ";
-        $this->conexion->ejecutar($sentenciaSql);
-    }
-
-    function consultar() {
-        $condicion = $this->obtenerCondicion();
-        $sentenciaSql = "SELECT
-                            *
-                        FROM
-                            categoria
-                        ".$condicion;
-        $this->conexion->ejecutar($sentenciaSql);
-    }
-
-    function consultarAjaxCategoria($valor, $limite = '') {
-        $sentenciaSql = "SELECT
-                            c.idCategoria
-                            , c.nombreCategoria
-                        FROM
-                            categoria AS c
-                        WHERE c.nombreCategoria LIKE '%$valor%'
-                        $limite";
-        $this->conexion->ejecutar($sentenciaSql);
-    }
-    
     function obtenerCondicion()
     {
         $condicion = '';
         $whereAnd = ' WHERE ';
         
+         if($this->idCategoria != ''){
+            $condicion = $condicion.$whereAnd." idCategoria = ".$this->idCategoria;
+            $whereAnd = ' AND ';
+         }
         if($this->nombreCategoria != '')
         {
             $condicion = $condicion.$whereAnd." nombreCategoria LIKE '%".$this->nombreCategoria."%'";
             $whereAnd = ' AND ';
         }
+       
         
         return $condicion;
     }
-}
+    }
+    
+ 
 
 //	public function consultarCategoria(){
 //		try{			
@@ -149,22 +171,7 @@ class Categoria
 //		}
 //	}
 //
-//		public function eliminarCategoria($nomCategoria){
-//		$this->nombreCategoria = $nomCategoria[0]["categoria"];
-//                echo $this->nombreCategoria;
-//		try{
-//				$query = "DELETE FROM categoria WHERE idCategoria =".$this->nombreCategoria;
-//				$resultQuery = $this->conexion->ejecutar($query);
-//				if($this->conexion->obtenerNumeroRegistros($this->conexion)>0){
-//		     		echo json_encode(array("resultado"=>"Elimino efectuado!"));
-//				}else{
-//					echo json_encode(Array("resultado"=>"Error al eliminar!"));
-//				}
-//		}
-//		catch(Exception $e){
-//			echo json_encode(Array("resultado"=>"Ocurrio un error: La categoria no se puede eliminar por que tiene una dependecia de llave FK"));
-//		}
-//	}
+
 //        
 //        public function consultarId($id){
 //            try{

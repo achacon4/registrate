@@ -3,7 +3,7 @@ namespace controlador;
 
 require_once '../modelo/Categoria.php';
 
-$retorno = array("exito"=>1,"mensaje"=>"");
+$retorno = array("exito"=>1,"mensaje"=>"","data"=>array());
 try
 {
     $idCategoria = filter_input(INPUT_POST, 'hidIdCategoria');
