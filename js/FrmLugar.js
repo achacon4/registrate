@@ -1,11 +1,4 @@
 $(function(){ 
-
-    $("#txtNombre").autocomplete({
-        source: '../controlador/Lugar.consultar.ajax.php',
-        select: function(event, ui){
-            $("#hidIdLugar").val(ui.item.id);
-        }
-    });
     
   $("#btnAdicionar").click(function (){
         if(validarVacios() === false){
