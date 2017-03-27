@@ -3,7 +3,7 @@
 namespace modelo;
 require_once '../entorno/Conexion.php';
 require_once '../entidad/AsistenciaEvento.php';
-require_once '../modelo/VerificacionAsistentes.php';
+require_once '../modelo/AsistenteEvento.php';
 
 class AsistenciaEvento{
     public $conexion;

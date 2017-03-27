@@ -27,6 +27,7 @@ try {
            
         $clienteE->setEmail($email);
         $clienteE->setTelefono($telefono);
+        $clienteE->setEstado('A');
         $clienteE->setEstado($estado);
         
         $clienteM = new \modelo\DatosPersonales($clienteE);

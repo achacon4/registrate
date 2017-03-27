@@ -50,7 +50,7 @@ $("#btnModificar").click(function (){
                 alert(resultado.mensaje);
                 limpiar();
                 consultar();
-                desabilitarEstado()
+                desabilitarEstado();
             }, error:function(xhr, status, error){
                 alert("Error: "+error);
             }
@@ -59,11 +59,11 @@ $("#btnModificar").click(function (){
     
      $("#btnEliminar").click(function(){
           eliminar();
-          desabilitarEstado()
+          desabilitarEstado();
     });
      $("#btnLimpiar").click(function(){
           limpiar();
-          desabilitarEstado()
+          desabilitarEstado();
     });
 
 
@@ -87,6 +87,7 @@ function eliminar(){
              alert(resultado.mensaje);
               limpiar();
               consultar();
+              desabilitarEstado();
             }, error:function(xhr,status,error){
                 alert("Error: "+error);
             }

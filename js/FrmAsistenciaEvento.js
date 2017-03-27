@@ -1,4 +1,4 @@
-var asistentes = new Array();
+    var asistentes = new Array();
 //
 //var asistencia = new Array();
 
@@ -47,7 +47,6 @@ $(function (){
                }
                alert(resultado.mensaje);
                crearListado(resultado.data.asistentes);
-               limpiar();
            },error:function(xhr, status, error){
                alert("error" + error);
            }
@@ -63,11 +62,6 @@ function validarVacios(){
         return false;
     }
     return true;
-}
-
-function limpiar(){
-    $("#txtEvento").val('');
-    $("#listadoAsistentes").remove();
 }
 
 function crearListado(_asistentes){

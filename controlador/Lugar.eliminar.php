@@ -11,7 +11,7 @@ try {
                 $entidadM = new \modelo\Lugar($entidadE);
                 $entidadM->eliminar();
    
-    $retorno['mensaje']='Se elimino corecctamente';
+    $retorno['mensaje']='Se eliminó correctamente';
 } catch (Exception $exc) {
     $retorno['exito']=0;
     $retorno['mensaje']=$error->getMessage();

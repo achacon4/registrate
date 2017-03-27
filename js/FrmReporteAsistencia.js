@@ -68,7 +68,12 @@ $(function (){
                 alert("Error: "+error);
             }
        });
-    });  
+    }); 
+    
+    $("#btnPDF").click(function(){
+        window.open('../controlador/ReporteAsistenciaPdF.php?idEvento='+$("#selEvento").val());
+    });
+
 
 });
 

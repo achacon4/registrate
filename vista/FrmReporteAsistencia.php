@@ -28,6 +28,7 @@
                                 </td>
                                 <td>
                                     <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR</button>
+                                    <button type="button" name="btnPDF" id="btnPDF" class="btn btn-default btn-lg active">EXPORTA PDF</button>
                                 </td>
                             </tr>
                         </table>

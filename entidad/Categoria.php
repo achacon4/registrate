@@ -1,28 +1,26 @@
 <?php
-namespace entidad;
 
-class Categoria
-{
+
+class CategoriaEntidad {
     private $idCategoria;
     private $nombreCategoria;
 
-    function getIdCategoria()
-    {
-        return $this->idCategoria;
-    }
 
-    function getNombreCategoria()
-    {
-        return $this->nombreCategoria;
-    }
+	function getIdCategoria() {
+	    return $this->idCategoria;
+	}
 
-    function setIdCategoria($idCategoria)
-    {
-        $this->idCategoria = $idCategoria;
-    }
+	 function getNombreCategoria() {
+	    return $this->nombreCategoria;
+	}
 
-    function setNombreCategoria($nombreCategoria)
-    {
-        $this->nombreCategoria = $nombreCategoria;
-    }
+	 function setIdCategoria($idCategoria) {
+	    $this->idCategoria = $idCategoria;
+	}
+
+	 function setNombreCategoria($nombreCategoria) {
+	    $this->nombreCategoria = $nombreCategoria;
+	}
+
 }
+?>

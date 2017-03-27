@@ -83,18 +83,6 @@ class DatosPersonales{
         $this->conexion->ejecutar($sentenciaSql);
     }
     
-    function consultarAjaxDatosPersonales($valor, $limite = '')
-    {
-        $sentenciaSql = "SELECT
-                            dp.idDatosPersonales
-                            , dp.nombre
-                        FROM
-                            datospersonales AS dp
-                        WHERE dp.nombre LIKE '%$valor%'
-                        $limite";
-        $this->conexion->ejecutar($sentenciaSql);
-    }
-    
     function modificar(){
         $sentenciaSql= "UPDATE
                             datospersonales
@@ -125,15 +113,15 @@ class DatosPersonales{
             $whereAnd = ' AND ';
         }
         if($this->apaterno != ''){
-            $condicion = $condicion.$whereAnd." apaterno LIKE '%".$this->apaterno."%'";
+            $condicion = $condicion.$whereAnd." apaterno = ".$this->apaterno;
             $whereAnd = ' AND ';
         }
         if($this->amaterno != ''){
-            $condicion = $condicion.$whereAnd." amaterno LIKE '%".$this->amaterno."%'";
+            $condicion = $condicion.$whereAnd." amaterno = ".$this->amaterno;
             $whereAnd = ' AND ';
         }
-         if($this->tipoDocumento != ''){
-            $condicion = $condicion.$whereAnd." tipoDocumento = '".$this->tipoDocumento."'";
+        if($this->tipoDocumento != ''){
+            $condicion = $condicion.$whereAnd." tipoDocumento = ".$this->tipoDocumento;
             $whereAnd = ' AND ';
         }
         if($this->numeroDocumento != ''){
@@ -141,7 +129,7 @@ class DatosPersonales{
             $whereAnd = ' AND ';
         }
         if($this->email != ''){
-            $condicion = $condicion.$whereAnd." email LIKE '%".$this->email."%'";
+            $condicion = $condicion.$whereAnd." email = ".$this->email;
             $whereAnd = ' AND ';
         }
         if($this->telefono != ''){

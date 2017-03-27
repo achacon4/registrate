@@ -2,12 +2,9 @@
 namespace entidad;
  class Usuario{
      private $idUsuario;
-     private $idDatosPersonales;
      private $usuario;
-     private $contrasenia;
-     private $contrasenia2;
-     private $contraseniaNueva;
-     private $estado;  
+     private $contraseña;
+     private $idDatosPersonales;  
      
      function getIdUsuario() {
          return $this->idUsuario;
@@ -17,20 +14,8 @@ namespace entidad;
          return $this->usuario;
      }
 
-     function getContrasenia() {
-         return $this->contrasenia;
-     }
-     
-     function getContrasenia2() {
-         return $this->contrasenia2;
-     }
-
-     function getContraseniaNueva() {
-         return $this->contraseniaNueva;
-     }
-     
-     function getEstado() {
-         return $this->estado;
+     function getContraseña() {
+         return $this->contraseña;
      }
 
      function getIdDatosPersonales() {
@@ -45,23 +30,17 @@ namespace entidad;
          $this->usuario = $usuario;
      }
 
-     function setContrasenia($contrasenia) {
-         $this->contrasenia = $contrasenia;
-     }
-     
-     function setContrasenia2($contrasenia2) {
-         $this->contrasenia2 = $contrasenia2;
-     }
-
-     function setContraseniaNueva($contraseniaNueva) {
-         $this->contraseniaNueva = $contraseniaNueva;
-     }
-     
-     function setEstado($estado) {
-         $this->estado = $estado;
+     function setContraseña($contraseña) {
+         $this->contraseña = $contraseña;
      }
 
      function setIdDatosPersonales($idDatosPersonales) {
          $this->idDatosPersonales = $idDatosPersonales;
-     }    
+     }
+
+
+
+
+
+    
  }

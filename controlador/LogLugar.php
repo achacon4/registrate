@@ -19,7 +19,7 @@ switch ($accion){
 	        $entidadE-> setPresupuesto ($presupuesto);
 	        $entidadE-> setCantidadPersonas ($cantidadPersonas);
 
-	        echo 'se adiciono correctamente el cliente.';
+	        echo 'Se adiciono correctamente el lugar.';
           }catch (Exception $error){
               echo $error->getMessage();
           }
@@ -49,7 +49,7 @@ switch ($accion){
              $numeroRegistros = $entidadM->conexion->obtenerNumeroRegistros();
              if ($numeroRegistros == 1){
                 $fila = $entidadM->conexion->obtenerObjeto();
-                $_POST ['hidIdLugar'] = $fila->idCliente;
+                $_POST ['hidIdLugar'] = $fila->idLugar;
                 $_POST ['txtNombre'] = $fila->nombre;
                 $_POST ['selDisponibilidad'] = $fila->disponibilidad;
                 $_POST ['txtDescripcion'] = $fila->descripcion;
@@ -69,9 +69,9 @@ switch ($accion){
                    $sentenciaSql = "DELETE FROM lugar WHERE idLugar" .idLugar;
                    $rsDelete = $conexion->query($sentenciaSql);
                    if ($rsDelete == false){
-                     throw new Exception ("Error al eliminar los datos del cliente".$rsInsert);
+                     throw new Exception ("Error al eliminar los datos del lugar".$rsInsert);
                    }
-                   echo 'se eliminó correctamente los datos del cliente';
+                   echo 'Se eliminó correctamente los datos del lugar';
                 }catch (Exception $error){
                      echo $error->getMesage();
                 }
@@ -89,14 +89,11 @@ switch ($accion){
                         $sentenciaSql ="UPDATE lugar SET nombre =".$nombre.",disponibilidad = '".$disponibilidad."',descripcion = '".$descripcion."',presupuesto = '".$presupuesto."',cantidadPersonas = '".$cantidadPersonas."' WHERE idLugar =".$idLugar;
                         $rsUpdate = $conexion->query ($sentenciaSql);
                         if  ($rsUpdate == false){
-                           throw new Exception ("error al modificar los datos del cliente".$rsInsert);
+                           throw new Exception ("Error al modificar los datos del lugar".$rsInsert);
                         }
                         }catch (Exception $error){
                             echo $error->getMessage();
                    }
-
-                  
-
         }      
 
 

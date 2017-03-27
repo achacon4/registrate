@@ -4,7 +4,6 @@ require_once '../entorno/Conexion.php';
 require_once '../entidad/Evento.php';
 require_once '../modelo/Lugar.php';
 require_once '../modelo/DatosPersonales.php';
-require_once '../modelo/Categoria.php';
 
 class Evento
 {
@@ -78,16 +77,16 @@ class Evento
         $sentenciaSql= "UPDATE
                             evento
                         SET
-                            idLugarFK = ".$this->lugarFK->getIdLugar()."
-                            , idDatosPersonalesFK = ".$this->datosPersonalesFK->getIdDatosPersonales()."
-                            , idCategoriaFK = ".$this->categoriaFK->getIdCategoria()."
+                            idLugarFK = ".$this->lugarFK->getLugarFK()."
+                            , idDatosPersonalesFK = ".$this->datosPersonalesFK->getDatosPersonalesFK()."
+                            , idCategoriaFK = ".$this->categoriaFK->getCategoriaFK()."
                             , nombreEvento = '$this->nombreEvento'
-                            , fechaInicial = '$this->fechaInicial'
-                            , fechaFinal = '$this->fechaFinal'
+                            ' fechaInicial = '$this->fechaInicial'
+                            ' fechaFinal = '$this->fechaInicial'
                             , horaInicial = '$this->horaInicial'
                             , horaFinal = '$this->horaFinal'
-                            , cantidadAsistentes = '$this->cantidadAsistentes'
-                            , descripcionEvento = '$this->descripcionEvento'
+                            ' cantidadAsistentes = '$this->cantidadAsistentes'
+                            ' descripcionEvento = '$this->descripcionEvento'
                             , estadoEvento = '$this->estadoEvento'
                         WHERE
                             idEvento = $this->idEvento
@@ -119,7 +118,8 @@ class Evento
                             INNER JOIN lugar AS l ON e.idLugarFK = l.idLugar
                             INNER JOIN datospersonales AS dp ON e.idDatosPersonalesFK = dp.idDatosPersonales
                             INNER JOIN categoria AS c ON e.idCategoriaFK = c.idCategoria
-                        ".$condicion;
+                        $condicion
+                        ";
         $this->conexion->ejecutar($sentenciaSql);
     }
     
@@ -197,6 +197,12 @@ class Evento
         $this->conexion->ejecutar($sentenciaSql);
     }
    
+    
+    function obtenerEvento($idEvento){
+        $sentenciaSql = "SELECT nombreEvento,fechaInicial,horaInicial,horaFinal FROM evento WHERE idEvento = ".$idEvento;
+        $this->conexion->ejecutar($sentenciaSql);
+    }
+    
     function obtenerCondicion()
     {
         $condicion = '';
@@ -223,54 +229,6 @@ class Evento
         if($this->categoriaFK->getIdCategoria() != '')
         {
             $condicion = $condicion.$whereAnd." e.idCategoriaFK = ".$this->categoriaFK->getIdCategoria();
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->nombreEvento != '')
-        {
-            $condicion = $condicion.$whereAnd." e.nombreEvento LIKE '%".$this->nombreEvento."%'";
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->fechaInicial != '')
-        {
-            $condicion = $condicion.$whereAnd." e.fechaInicial = '".$this->fechaInicial."'";
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->fechaFinal != '')
-        {
-            $condicion = $condicion.$whereAnd." e.fechaFinal  = '".$this->fechaFinal."'";
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->horaInicial != '')
-        {
-            $condicion = $condicion.$whereAnd." e.horaInicial = '".$this->horaInicial."'";
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->horaFinal != '')
-        {
-            $condicion = $condicion.$whereAnd." e.horaFinal = '".$this->horaFinal."'";
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->cantidadAsistentes != '')
-        {
-            $condicion = $condicion.$whereAnd." e.cantidadAsistentes = '".$this->cantidadAsistentes."'";
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->descripcionEvento != '')
-        {
-            $condicion = $condicion.$whereAnd." e.descripcionEvento LIKE '%".$this->descripcionEvento."%'";
-            $whereAnd = ' AND ';
-        }
-        
-        if($this->estadoEvento != '')
-        {
-            $condicion = $condicion.$whereAnd." e.estadoEvento LIKE '%".$this->estadoEvento."%'";
             $whereAnd = ' AND ';
         }
         

@@ -1,73 +1,59 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Usuario</title>
-        <script src="../jquery/jquery.js" type="text/javascript"></script>
-        <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
-        <script src="../js/FrmUsuario.js" type="text/javascript"></script>
-        <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
-    </head>
-    <body>
-        <header>
-            <h1>Usuario</h1>
-        </header> 
-
-        <form name="frmUsuario" id="frmUsuario" action="" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="hidIdDatosPersonales" id="hidIdDatosPersonales">
-            <input type="hidden" name="hidIdUsuario" id="hidIdUsuario">
-            <div>
-                <div>
-                    <label for="txtDatosPersonales">* Persona: </label><br>
-                    <input type="text" id="txtDatosPersonales" name="txtDatosPersonales">
-                </div>
-
-                <div>
-                    <label for="txtUsuario">* Usuario: </label><br>
-                    <input type="text" id="txtUsuario" name="txtUsuario">
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <label for="txtContrasenia">* Contraseña: </label><br>
-                    <input type="password" id="txtContrasenia" name="txtContrasenia">
-                </div>
-
-                <div>
-                    <label for="txtVerificarContrasenia">* Verificar Contraseña: </label><br>
-                    <input type="password" id="txtVerificarContrasenia" name="txtVerificarContrasenia">
-                </div>
-            </div><br>
-            <div>
-                <div>
-                    <label for="selEstado">* Estado: </label><br>
-                    <select name="selEstado" id="selEstado">
-                        <option value="">--Seleccione--</option>
-                        <option value="A">ACTIVO</option>
-                        <option value="I">INACTIVO</option>
-                    </select>
-                </div>
-            </div><br>
-            <nav>
-                <input type="button" id="btnAdicionar" name="btnAdicionar" value="ADICIONAR">
-                <input type="button" id="btnEliminar" name="btnEliminar" value="ELIMINAR"> 
-                <input type="button" id="btnModificar" name="btnModificar" value="MODIFICAR">
-                <input type="button" id="btnModificarContrasenia" name="btnModificarContrasenia" value="MODIFICAR CONTRASEÑA">
-                <input type="button" id="btnConsultar" name="btnConsultar" value="CONSULTAR">
-                <input type="button" id="btnLimpiar" name="btnLimpiar" value="LIMPIAR"> 
-            </nav><br>
-
-            <section id="secListado">
-                <table>
-                    <tr>
-                        <th>Usuario</th> 
-                        <th>Estado</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                    </tr>           
-                </table>
-            </section>
-        </form>
-    </body>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="../css/FrmCliente.css">
+</head>
+<body>
+<header>
+<h1>USUARIO</h1>
+</header>
+<section id="secPrincipal">
+<form name="frmPrincipal" id="frmPrincipal" action="" method="POST">
+<section id="secFormulario">
+<div class="table">
+<div class="tr">
+<input name="hidAccion" id="hidAccion" type="hidden">
+<input name="hidIdUsuario" id="hidIdUsuario" type="hidden" >
+<div class="td">
+<div class="tr">
+<input name="hidAccion" id="hidAccion" type="hidden">
+<input name="hidIdDatosPersonales" id="hidIdDatosPersonales" type="hidden" >
+<div class="td">
+</div>
+<div class="tr">
+<div class="tdTexto">Usuario</div>
+<div class="td"><input name="txtUsuario" type="text" id="txtUsuario" class="form-control tamanioTexto"></div>
+</div>
+<div class="tr">
+<div class="tdTexto">Contraseña:</div>
+<div class="td"><input name="txtcontraseña" type="text" id="txtcontraseña" class="form-control tamanioTexto"></div>
+</div>
+<div class="tr">
+<div class="tdTexto">Estado</div>
+<div class="td"><select name="selEstado" id="selEstado" class="form-control tamanioTexto">
+<option value="">-SELECCIONE--</option>
+<option value="">ACTIVO</option>
+<option value="">INACTIVO</option>
+</select></div>
+</div>
+<div class="tr">
+<div class="tdTexto">Nombre Usuario:</div>
+<div class="td"><input name="txtNombreUsuario" type="text" id="txtNombreUsuario" class="form-control tamanioTexto"></div>
+</div>
+</table></div>
+</section>
+</section>
+<br>
+<nav>
+    <input name="btnAdicionar" type="button" id="btnAdicionar" value="ADICIONAR" class="btn btn-danger">
+    <input name="btnModificar" type="button" id="btnModificar" value="MODIFICAR" class="btn btn-danger">
+<input name="btnConsultar" type="button" id="btnConsultar" value="CONSULTAR" class="btn btn btn-danger">
+<input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn btn-danger">
+</nav>
+</body>
 </html>
+
+    

@@ -22,7 +22,7 @@
                     <div class="tr">
                         <div class="tdTexto">*Tipo Documento: </div>
                         <div class="td">
-                            <select name="selTipoDocumento" id="selTipoDocumento" class="form-control tamanioTexto" >
+                            <select name="selTipoDocumento" id="selTipoDocumento" class="form-control tamanioTexto">
                                 <option value="">--SELECCIONE--</option>
                                 <option>C.C</option>
                                 <option>T.I</option>
@@ -78,7 +78,7 @@
                         <div class="tdTexto">Estado: </div>
                         <div class="td">
                             <select name="selEstado" id="selEstado" class="form-control tamanioTexto">
-                                <option value="">---SELECCIONE---</option>
+                                <option value="">-SELECCIONE--</option>
                                 <option>A</option>
                                 <option disabled="">I</option>
                             </select>
