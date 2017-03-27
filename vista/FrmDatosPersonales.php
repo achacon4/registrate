@@ -80,7 +80,7 @@
                             <select name="selEstado" id="selEstado" class="form-control tamanioTexto">
                                 <option value="">-SELECCIONE--</option>
                                 <option>A</option>
-                                <option>I</option>
+                                <option disabled="">I</option>
                             </select>
                         </div>
                     </div>
