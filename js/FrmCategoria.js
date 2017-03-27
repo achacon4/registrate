@@ -55,19 +55,65 @@ $(function(){
         });
     });
     
-       $("#btnEliminar").click(function(){
-          eliminar();
-           });
     $("#btnConsultar").click(function (){  
         consultar();
     });
-    
+    $("#btnEliminar").click(function(){
+          eliminar();
+         
+    });
+//     $('#btnEliminar').click(function(){
+////	 		if(confirm("Desea continuar?")===false){
+////	            		return  false;
+////	        }
+////		    var accion = "ELIMINAR"; 
+////		    var categoria = $("#idCategoria").val(); 
+//
+////		    var datos = {"accion":accion,"categoria":categoria}; 
+//                     var datos=$("#frmPrincipal").serialize();
+//		    $.ajax({
+//		        url:'../controlador/categoria.eliminar.php', 
+//		        type:'POST', 
+//		        dataType:'json', 
+//		        data:datos 
+//		    }).done(function(data){
+////		    	$('#resultado').empty();
+////		        $('#resultado').text(data["resultado"]);
+//                   alert("error:"+error);
+//		    });		   
+//		});
+
+
+
     $('#btnLimpiar').click(function(){
         $("#secListado").html('');
         limpiar();
     });
 });
-
+function eliminar(){
+      
+            var datos=$("#frmPrincipal").serialize();
+                       
+        $.ajax ({
+            url:'../controlador/categoria.eliminar.php'
+            , type:'POST'
+            , dataType:'json'
+            ,data:datos
+          
+            ,success:function (resultado){
+             if(resultado.exito === 0){
+                    alert(resultado.mensaje);
+                    return false;
+             }
+             alert(resultado.mensaje);
+              limpiar();
+              consultar();
+              desabilitarEstado();
+            }, error:function(xhr,status,error){
+                alert("Error: "+error);
+            }
+        });
+}
 function limpiar()
 {
     $("#hidIdCategoria").val(''); 
@@ -123,23 +169,6 @@ function consultar()
         }
     });
 }
- $('#btnEliminar').click(function(){
-	 		if(confirm("Desea continuar?")===false){
-	            		return  false;
-	        }
-		    var accion = "ELIMINAR"; 
-		    var categoria = $("#idCategoria").val(); 
-		    var datos = {"accion":accion,"categoria":categoria}; 
-		    $.ajax({
-		        url:'../controlador/categoria.eliminar.php', 
-		        type:'POST', 
-		        dataType:'json', 
-		        data:datos 
-		    }).done(function(data){
-		    	$('#resultado').empty();
-		        $('#resultado').text(data["resultado"]);
-		    });		   
-		});
 
 function validarVacios()
 {
