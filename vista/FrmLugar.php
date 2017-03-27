@@ -2,13 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Lugar</title>
         <link type="text/css" rel="stylesheet" href="../jquery/jquery-ui.css">
         <script src="../jquery/jquery.js" type="text/javascript"></script>
         <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
         <script src="../js/FrmLugar.js" type="text/javascript"></script>
-        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+        <script src="../js/FrmLugarPdf.js" type="text/javascript"></script>
         <link type="text/css" rel="stylesheet" href="../css/FrmLugar.css">
+        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     </head>
     <body>
     <center>
@@ -57,6 +58,8 @@
                         <input name="btnConsultar" type="button" id="btnConsultar" value="CONSULTAR" class="btn btn-success">
                         <input name="btnEliminar" type="button" id="btnEliminar" value="ELIMINAR" class="btn btn-success">
                         <input name="btnLimpiar" type="button" id="btnLimpiar" value="LIMPIAR" class="btn btn-success">
+                        <button type="button" name="btnReporte" id="btnReporte" class="btn btn-success">PDF</button>
+<!--                        <input name="btnReporte" type="button" id="btnReporte" value="PDF" class="btn btn-success">-->
                     </nav>
                 </section>
              <br>

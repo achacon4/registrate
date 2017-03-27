@@ -92,6 +92,10 @@ Class Lugar {
         $sentenciaSql = "SELECT * FROM lugar $condicion";
         $this->conexion->ejecutar($sentenciaSql);
     }
+         function obtenerLugar(){
+         $sentenciaSql = "SELECT * FROM lugar";
+         $this->conexion->ejecutar($sentenciaSql);
+     }
         function obtenerCondicion(){
         $condicion = '';
         $whereAnd = ' WHERE ';
