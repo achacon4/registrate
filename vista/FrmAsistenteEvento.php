@@ -18,7 +18,7 @@
                 <form name ="frmPrincipal" id="frmPrincipal"  action="" method="POST" class="form-horizontal" >
                     <section id="secFormulario" class="panel-body">
                         <input name="idAsistenteEvento" id="idAsistenteEvento" type="hidden">
-                        <input name="idEventoFK" id="idEventoFK" type="hidden" >
+                        <input name="idEventoFK" id="idEventoFK" type="hidden">
                         
                          <div class="tr">
                             <label  class=" tdTexto">Evento:</label>
@@ -113,6 +113,7 @@
                     <br><input type='button' id='btnAdicionar' name='btnAdicionar' value='ADICIONAR' class="btn btn-danger">
                     <input type='button' id='btnConsultar' name='btnConsultar' value='CONSULTAR' class="btn btn-default">
                     <input type='button' id='btnModificar' name='btnModificar' value='MODIFICAR' class="btn btn-danger">
+                    <input type='button' id='btnLimpiar' name='btnLimpiar' value='LIMPIAR' class="btn btn-danger">
                     <a href="../controlador/AsistenteEvento.exportar.php"><input type='button' id='btnExportar' name='btnExportar' value='EXPORTAR' class="btn btn-danger"></a>
                     </nav>
                 

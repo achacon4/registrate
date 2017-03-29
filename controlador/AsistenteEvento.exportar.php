@@ -1,21 +1,24 @@
 <?php
-include "../entorno/Conexion.php";
-require_once '../modelo/AsistenteEvento.php';
-require_once '../entidad/AsistenteEvento.php';
-//Base de datos
-//$mysqli = new mysqli('localhost','root','','registrate');
 
-//fecha de la exportación
-$clienteE = new \entidad\AsistenteEvento();
-$clienteM = new \modelo\AsistenteEvento($clienteE,null);
-$clienteM->exportar();
-//Inicio de la instancia para la exportación en Excel
-$fecha = date("d-m-Y");
-header('Content-type: application/vnd.ms-excel');
-header("Content-Disposition: attachment; filename=RegistroAsistentes_$fecha.xls");
-header("Pragma: no-cache");
-header("Expires: 0");
+include "../entorno/Conexion.php"; 
+require_once '../modelo/AsistenteEvento.php'; 
+require_once '../entidad/AsistenteEvento.php'; 
+//Base de datos 
+//$mysqli = new mysqli('localhost','root','','registrate'); 
+ 
+//fecha de la exportación 
+$clienteE = new \entidad\AsistenteEvento(); 
+$clienteM = new \modelo\AsistenteEvento($clienteE,null); 
+$clienteM->exportar(); 
+//Inicio de la instancia para la exportación en Excel 
+$fecha = date("d-m-Y"); 
+header('Content-type: application/vnd.ms-excel'); 
+header("Content-Disposition: attachment; filename=RegistroAsistentes_$fecha.xls"); 
+header("Pragma: no-cache"); 
+header("Expires: 0"); 
 
+
+echo $tabla;
 echo "<table border=1> ";
 echo "<tr> ";
 echo     "<th>idAsistente</th> ";
@@ -33,19 +36,19 @@ echo "</tr> ";
 $numeroRegistros = $clienteM->conexion->obtenerNumeroRegistros();
 $contador = 0;
 while($row =  $clienteM->conexion->obtenerObjeto()){	
-       
-	
-     
-//        $idEventoFK = $clienteE->setIdEventoFK($row['nombreEventos']);
-//	$nombre = $clienteE->setNombre($row['nombre']);
-//	$apaterno = $clienteE->setApaterno($row['apaterno']);
-//        $amaterno = $clienteE->setAmaterno($row['amaterno']);
-//        $tipoDocumento = $clienteE->setTipoDocumento($row['tipoDocumento']) ;
-//        $numeroDocumento =$clienteE->setNumeroDocumento($row['numeroDocumento']);
-//        $email = $clienteE->setEmail($row['email']);
-//        $telefono = $clienteE->setTelefono($row['telefono']);
-//        $estado = $clienteE->setEstado($row['estado']);
-
+//       
+//	
+//     
+////        $idEventoFK = $clienteE->setIdEventoFK($row['nombreEventos']);
+////	$nombre = $clienteE->setNombre($row['nombre']);
+////	$apaterno = $clienteE->setApaterno($row['apaterno']);
+////        $amaterno = $clienteE->setAmaterno($row['amaterno']);
+////        $tipoDocumento = $clienteE->setTipoDocumento($row['tipoDocumento']) ;
+////        $numeroDocumento =$clienteE->setNumeroDocumento($row['numeroDocumento']);
+////        $email = $clienteE->setEmail($row['email']);
+////        $telefono = $clienteE->setTelefono($row['telefono']);
+////        $estado = $clienteE->setEstado($row['estado']);
+//
 	echo "<tr> ";
 	echo 	"<td>".$idAsistenteEvento['idAsistenteEvento'][$contador]  = $row->idAsistenteEvento."</td> "; 
         echo 	"<td>".$idAsistenteEvento['nombreEventos'][$contador]  = $row->nombreEvento."</td> "; 
