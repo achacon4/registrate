@@ -35,9 +35,9 @@ $(function(){
             });
         });
      $("#btnModificar").click(function(){
-                 if(validarVacios() === false){
+            if(validarVacios() === false){
                    return false;
-               }
+              }
            var dataUrl = $("#frmPrincipal").serialize();
            var dataJsonString = '{"'+ decodeURI(dataUrl).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"').replace(/\s/g,'')+'"}';
            var data = JSON.parse(dataJsonString);
@@ -54,7 +54,8 @@ $(function(){
                     return false;
              }
              alert(resultado.mensaje);
-             limpiar();
+             var pasar = 0;
+             limpiar2();
             }, error:function(xhr,status,error){
                 alert("Error: "+error);
             }
@@ -64,12 +65,17 @@ $(function(){
      $("#btnConsultar").click(function (){  
         consultar();
     });
+    $("#btnLimpiar").click(function (){  
+        limpiar2();
+    });
+
 });
 
  function crearListado(AsistenteEvento){
     var numeroRegistro = AsistenteEvento.length;
     
     if(numeroRegistro === 1){
+     $("#secListadoPersonas").html("");
     $("#idAsistenteEvento").val(AsistenteEvento[0].idAsistenteEvento);
     $("#selEvento").val(AsistenteEvento[0].idEventoFK);
     $("#txtEvento").val(AsistenteEvento[0].nombreEventos);
@@ -81,10 +87,11 @@ $(function(){
     $("#txtEmail").val(AsistenteEvento[0].email);
     $("#txtTelefono").val(AsistenteEvento[0].telefono);
     $("#selEstado").val(AsistenteEvento[0].estado);
-        
+     
     }else{
               var listado = '<table class="table table-hover" id="tbListado">'+
                        '<tr><td><b>Nombre</b></td>\n\
+                        <td><b>Evento</b></td>\n\
                         <td><b>Apellido Paterno</b></td>\n\
                         <td><b>Apellido Materno</b></td>\n\
                         <td><b>Tipo de Documento</b></td>\n\
@@ -95,6 +102,7 @@ $(function(){
          
     $.each(AsistenteEvento, function (indice, asistente){
                   listado = listado+'<tr><td><a  onclick="seleccionarRegistro('+asistente.idAsistenteEvento+')">'+asistente.nombre+'</a></td><td>'
+                                              +asistente.nombreEventos+'</td><td>'                              
                                               +asistente.apaterno+'</td><td>'
                                               +asistente.amaterno+'</td><td>'
                                               +asistente.tipoDocumento+'</td><td>'
@@ -127,6 +135,7 @@ function consultar(){
                    return false;
                }
                crearListado(resultado.data.AsistenteEvento);
+              
            },error:function(xhr,status, error){
                alert("error" + error);
            }
@@ -146,6 +155,23 @@ function limpiar()
     $("#txtNumeroDocumento").val('');
     $("#txtEmail").val('');
     $("#txtTelefono").val('');
+    
+    
+    
+}
+function limpiar2()
+{
+    $("#selEvento").val('');
+    $("#idAsistenteEvento").val('');
+    $("#txtEvento").val('');
+    $("#txtNombre").val('');
+    $("#txtAmaterno").val('');
+    $("#txtApaterno").val('');
+    $("#selTipoDocumento").val('');
+    $("#txtNumeroDocumento").val('');
+    $("#txtEmail").val('');
+    $("#txtTelefono").val('');
+    $("#secListadoPersonas").html('');
     
     
     

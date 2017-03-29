@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +7,11 @@
         <script src="../jquery/jquery.js" type="text/javascript"></script>
         <script src="../jquery/jquery-ui.js" type="text/javascript"></script>
         <script src="../js/FrmAsistenciaEvento.js" type="text/javascript"></script>
+<<<<<<< HEAD
         <script src="../js/FrmAsistenciaPdf.js" type="text/javascript"></script>
+=======
+        
+>>>>>>> master
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     </head>
     <body>
@@ -28,7 +31,7 @@
                             Nombre del Evento:<input type="text" name="txtEvento" id="txtEvento" class="form-control" placeholder="Nombre del Evento">
                         </td>
                         <td>
-                            <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR</button>
+                            <button type="button" name="btnConsultarAsistente" id="btnConsultarAsistente" class="btn btn-default btn-lg active">CONSULTAR ASITENTES</button>
                         </td>
                     </tr>
                 </table>
@@ -58,10 +61,8 @@
                 </div>
                 <div>
                     <center>
-                        <button type="button" name="btnGuardarAsistencia" id="btnGuardarAsistencia" class="btn btn-default btn-lg active">GUARDAR</button>
-                        <button type="button" name="btnReporte" id="btnReporte" class="btn btn-default btn-lg active">PDF</button>
+                        <button type="button" name="btnGuardarAsistencia" id="btnGuardarAsistencia" class="btn btn-default btn-lg active">GUARDAR ASISTENCIA</button>
                     </center>
-                </div>
             </form>
         </section>
     </body>

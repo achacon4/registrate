@@ -1,5 +1,9 @@
 $(function(){ 
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> master
   $("#btnAdicionar").click(function (){
         if(validarVacios() === false){
             return false;
@@ -19,8 +23,6 @@ $(function(){
                     return false;
                 }
                 alert(resultado.mensaje);
-                limpiar();
-                limpiarListado();
             }, error:function(xhr, status, error){
                 alert("Error: "+error);
             }
@@ -45,8 +47,6 @@ $(function(){
                     return false;
                 }
                 alert(resultado.mensaje);
-                limpiar();
-                limpiarListado();
             }, error:function(xhr, status, error){
                 alert("Error: "+error);
             }
@@ -54,10 +54,7 @@ $(function(){
     });
      
         $("#btnEliminar").click(function(){
-           var confirmar = confirm("Desea eliminar el registro.");
-           var texto;
-           if(confirmar == true){
-              
+            
            var data = "hidIdLugar="+$("#hidIdLugar").val();
                        
         $.ajax ({
@@ -73,24 +70,17 @@ $(function(){
              }
              alert(resultado.mensaje);
              limpiar();
-             limpiarListado();
-             consultar();
+              consultar();
             }, error:function(xhr,status,error){
                 alert("Error: "+error);
             }
         });
-        texto="Se eliminó correctamente";
-    }
-    else{
-         alert("Su petición fue cancelada");
-    }
     });
     $("#btnConsultar").click(function(){
        consultar();
     }); 
     $("#btnLimpiar").click(function(){
        limpiar();
-        limpiarListado();
     });
 });
 function limpiar(){
@@ -100,12 +90,9 @@ function limpiar(){
     $("#selDisponibilidad").val('');
     $("#txtDescripcion").val('');
     $("#txtPresupuesto").val('');
-    $("#txtCantidadPersonas").val('');
+    $("#txtCantidadPersonas").val(''); 
+    }
     
-}
-function limpiarListado(){
-    $("#secListado").html('');
-}
 function crearListado(Lugares){
     var numeroRegistro = Lugares.length;
     
@@ -115,17 +102,17 @@ function crearListado(Lugares){
     $("#selDisponibilidad").val(Lugares[0].disponibilidad);
     $("#txtDescripcion").val(Lugares[0].descripcion);
     $("#txtPresupuesto").val(Lugares[0].presupuesto);
-    $("#txtCantidadPersonas").val(Lugares[0].cantidadPersonas);
+    $("#txtCantidadPersonas").val(Lugares[0].idMunicipioResidencia);
    
   
         
     }else{
-              var listado = '<table class="table" id="tblListado">'+
-                       '<tr class="success"><td>Nombre</td>\n\
-                        <td>Estado</td>\n\
-                        <td>Descripción</td>\n\
+              var listado = '<table class="table" id="tbListado">'+
+                       '<tr><td>Nombre</td>\n\
+                        <td>Disponibilidad</td>\n\
+                        <td>Descripcion</td>\n\
                         <td>Presupuesto</td>\n\
-                        <td>Capacidad maxima de personas</td> \n\
+                        <td>Cantidad Personas</td> \n\
                        ';
     $.each(Lugares, function (indice, lugar){
                   listado = listado+'<tr></td><td><a href="#" onclick="seleccionarRegistro('+lugar.idLugar+')">'+lugar.nombre+'</a></td><td>'
@@ -139,9 +126,9 @@ function crearListado(Lugares){
            }
     
 }
-function seleccionarRegistro(idLugar){
+function seleccionarRegistro(nombre){
     limpiar();
-    $("#hidIdLugar").val(idLugar);
+    $("#txtNombre").val(nombre);
     $("#btnConsultar").trigger( "click" );
     
 }
@@ -179,7 +166,7 @@ function validarVacios(){
         };
         
         if(document.getElementById("txtDescripcion").value ===''){
-            alert("Debe llenar la Descripción");
+            alert("Debe llenar la Descripcion");
             document.getElementById("txtDescripcion").focus();
             return false;  
         };

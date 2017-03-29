@@ -1,7 +1,7 @@
 <?php
 
 namespace entidad;
-require_once '../entidad/AsistenteEvento.php';
+require_once '../entidad/RegistroAsistente.php';
 require_once '../modelo/Evento.php';
 
 class AsistenciaEvento{

@@ -10,7 +10,7 @@ try{
     $contador = 0;
     while ($fila = $eventoM->conexion->obtenerObjeto()){
         $retorno[$contador]['id'] = $fila->idEvento;
-        $retorno[$contador]['value'] = utf8_encode($fila->nombreEvento);
+        $retorno[$contador]['value'] = $fila->nombreEvento;
         $contador++;
     }
 } catch (Exception $error) {

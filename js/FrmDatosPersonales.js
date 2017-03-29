@@ -50,7 +50,6 @@ $("#btnModificar").click(function (){
                 alert(resultado.mensaje);
                 limpiar();
                 consultar();
-                desabilitarEstado();
             }, error:function(xhr, status, error){
                 alert("Error: "+error);
             }
@@ -59,11 +58,9 @@ $("#btnModificar").click(function (){
     
      $("#btnEliminar").click(function(){
           eliminar();
-          desabilitarEstado();
     });
      $("#btnLimpiar").click(function(){
           limpiar();
-          desabilitarEstado();
     });
 
 
@@ -87,7 +84,6 @@ function eliminar(){
              alert(resultado.mensaje);
               limpiar();
               consultar();
-              desabilitarEstado();
             }, error:function(xhr,status,error){
                 alert("Error: "+error);
             }
@@ -127,7 +123,6 @@ function crearListado(DatosPersonales){
     $("#txtNumeroDocumento").val(DatosPersonales[0].numeroDocumento);
     $("#txtEmail").val(DatosPersonales[0].email);
     $("#txtTelefono").val(DatosPersonales[0].telefono);
-    $("#selEstado").val(DatosPersonales[0].estado);
          
     }else{
         var listado = '<table class="table"  id="tblListado">'+
@@ -152,32 +147,12 @@ function crearListado(DatosPersonales){
               });
                listado = listado+'</table>';    
                $('#secListado').html(listado);
-
-               
            }
-}
-function habilitarEstado(){
-    var estado= '<select name="selEstado" id="selEstado" class="form-control tamanioTexto">'
-                    +' <option value="">---SELECCIONE---</option>'
-                    +' <option>A</option>'
-                    +' <option>I</option>';
-     estado=estado +'</select>';
-     $('#selEstado').html(estado);
-}
-function desabilitarEstado(){
-    var estado= '<select name="selEstado" id="selEstado" class="form-control tamanioTexto">'
-                    +' <option value="">---SELECCIONE---</option>'
-                    +' <option>A</option>'
-                    +' <option disabled="">I</option>';
-     estado=estado +'</select>';
-     $('#selEstado').html(estado);
 }
 function seleccionarRegistro(idDatosPersonales){
     limpiar();
-    habilitarEstado()
     $("#hidIdDatosPersonales").val(idDatosPersonales);
     $("#btnConsultar").trigger( "click" );
-  
 }
 function limpiar(){
     $("#hidIdDatosPersonales").val('');
@@ -188,7 +163,6 @@ function limpiar(){
     $("#txtNumeroDocumento").val('');
     $("#txtEmail").val('');
     $("#txtTelefono").val('');
-    $("#selEstado").val('');
 }
  function validarVacios(){
         if(document.getElementById("txtNombre").value ===''){

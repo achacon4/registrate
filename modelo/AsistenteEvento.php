@@ -3,7 +3,8 @@ namespace modelo;
 require_once '../entorno/Conexion.php';
 require_once '../entidad/AsistenteEvento.php';
 
-class AsistenteEvento 
+
+class AsistenteEvento
 {
     public $conexion;
 
@@ -19,7 +20,7 @@ class AsistenteEvento
     private $estado;
 	
 
-	function __construct(\entidad\AsistenteEvento $asistente, $conexion = null){
+	function __construct(\entidad\AsistenteEvento $asistente, $conexion =null){
 
 			$this->idAsistenteEvento = $asistente->getIdAsistenteEvento();
 			$this->idEventoFK = $asistente->getIdEventoFK();
@@ -31,20 +32,31 @@ class AsistenteEvento
 			$this->email = $asistente->getEmail();
 			$this->telefono = $asistente->getTelefono();
                         $this->estado = $asistente->getEstado();
-                     
-                        if($conexion == null){
-                            $this->conexion = new \Conexion();
-                        }else{
-                            $this->conexion = $conexion;
-                        }
-			
-        }
 
+                      if($conexion==null)
+                      {
+                          $this->conexion = new \Conexion();
+                      }else
+                      {
+                          $this->conexion = $conexion;
+                      }
+			
+}
+function exportar(){
+//$fecha = date("d-m-Y");
+$consulta= "SELECT 
+                            a.*
+                            ,ne.nombreEvento AS nombreEventos
+                        FROM 
+                         asistenteevento AS a
+                         INNER JOIN evento AS ne ON a.idEventoFK = ne.IdEvento";
+   $this->conexion->ejecutar($consulta);
+}
     function adicionar()
     {
             $sentenciaSql = "INSERT INTO asistenteevento
                                     (
-                                      ,idEventoFK
+                                      idEventoFK
                                       ,nombre
                                       ,apaterno
                                       ,amaterno
@@ -57,7 +69,7 @@ class AsistenteEvento
                                     VALUES
                                     (
                                    
-                                    ,$this->idEventoFK
+                                    ".$this->idEventoFK->getIdEvento()."
                                     ,'$this->nombre'
                                     ,'$this->apaterno'
                                     ,'$this->amaterno'
@@ -66,51 +78,35 @@ class AsistenteEvento
                                     ,'$this->email'
                                     ,'$this->telefono'
                                     ,'$this->estado'
+
                                     )";
 
                 $this->conexion->ejecutar($sentenciaSql);
     }
 
-    function modificarEstado($idAsistenteEvento, $estado){
-           
-        $sentenciaSql = "UPDATE asistenteevento SET  estado = '$estado' WHERE idAsistenteEvento = $idAsistenteEvento";
-        $this->conexion->ejecutar($sentenciaSql);
-        
-    }
+
 
     function modificar()
      {
          $sentenciaSql = "UPDATE 
                             asistenteevento 
                                  SET 
-                                 idEventoFK= $this->idEventoFK
+                                 idEventoFK = ".$this->idEventoFK->getIdEvento()."
                                  ,nombre= '$this->nombre'
                                  ,apaterno= '$this->apaterno'
                                  ,amaterno= '$this->amaterno'
                                  ,tipoDocumento='$this->tipoDocumento'
                                  ,numeroDocumento= '$this->numeroDocumento'
-                                 ,fechaNacimiento='$this->fechaNacimiento'
                                  ,email= '$this->email'
                                  ,telefono= '$this->telefono' 
-                                 ,estado = '$this->estado'
+                                 ,estado= '$this->estado' 
                                  WHERE 
                                  idAsistenteEvento = $this->idAsistenteEvento";
 
               $this->conexion->ejecutar($sentenciaSql);
           }
 
-      function eliminar()
-     {
-          $sentenciaSql = "DELETE FROM
-                            asistenteevento 
-                                 WHERE 
-                                  idAsistenteEvento = $this->idAsistenteEvento";
-
-
-
-         $this->conexion->ejecutar($sentenciaSql);
-     }
-     
+      
 
      function consultarTodo()
      {
@@ -122,27 +118,18 @@ class AsistenteEvento
      function consultar()
      {
       $condicion = $this->obtenerCondicion() ;
-      $sentenciaSql = "SELECT * FROM   asistenteevento ".$condicion; 
+      $sentenciaSql = "SELECT 
+                            a.*
+                            ,ne.nombreEvento AS nombreEventos
+                        FROM 
+                         asistenteevento AS a
+                         INNER JOIN evento AS ne ON a.idEventoFK = ne.IdEvento
+                         
+          ".$condicion; 
       $this->conexion->ejecutar($sentenciaSql);
      }
      
-     function obtenerAsistentes($idEvento){
-         $sentenciaSql = "SELECT nombre,
-                                apaterno,
-                                amaterno,
-                                tipoDocumento,
-                                numeroDocumento,
-                                estado 
-                         FROM 
-                            asistenteEvento 
-                         WHERE 
-                            estado <> 'CANCELADO' 
-                         AND 
-                            idEventoFK = $idEvento";
-         $this->conexion->ejecutar($sentenciaSql);
-     }
-}
-function obtenerCondicion()
+     function obtenerCondicion()
     {
        $condicion = '';
         $whereAnd = ' WHERE ';
@@ -152,7 +139,8 @@ function obtenerCondicion()
             $condicion = $condicion.$whereAnd."idAsistenteEvento = '". $this->idAsistenteEvento."'";
             $whereAnd = ' AND ';
         }
-        if($this->idEventoFK != '')
+         $idEvento = $this->idEventoFK->getIdEvento();
+        if($idEvento != '')
         {
             $condicion = $condicion.$whereAnd."idEventoFK = '". $this->idEventoFK."'";
             $whereAnd = ' AND ';
@@ -192,4 +180,8 @@ function obtenerCondicion()
             $condicion = $condicion.$whereAnd."telefono = '". $this->telefono."'";
             $whereAnd = ' AND ';
         }
+        return $condicion;
     }
+}
+
+

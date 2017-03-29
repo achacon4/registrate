@@ -24,7 +24,7 @@ require_once '../modelo/Lugar.php';
         $entidadM->adicionar();
         $entidadM->conexion->confirmarTransaccion();
     
-         $retorno['mensaje'] = 'Se adicionó correctamente un nuevo lugar.';
+         $retorno['mensaje'] = 'Se adicionó correctamente un nuevo cliente.';
        
    }catch(Exception $error){
        $entidadM->conexion->cancelarTransaccion();

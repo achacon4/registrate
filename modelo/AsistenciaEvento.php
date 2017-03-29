@@ -3,7 +3,7 @@
 namespace modelo;
 require_once '../entorno/Conexion.php';
 require_once '../entidad/AsistenciaEvento.php';
-require_once '../modelo/AsistenteEvento.php';
+require_once '../modelo/VerificacionAsistentes.php';
 
 class AsistenciaEvento{
     public $conexion;
@@ -13,7 +13,6 @@ class AsistenciaEvento{
     private $idEventoFK;
     private $tomarAsistencia;
     private $asistentes = array();
-    
             
     function __construct(\entidad\AsistenciaEvento $asistencia, $conexion = null) {
         $this->idAsistenciaEvento = $asistencia->getIdAsistenciaEvento();
@@ -54,7 +53,5 @@ class AsistenciaEvento{
                 }
             }
        }
-       
-       
     }
 }
