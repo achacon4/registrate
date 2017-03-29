@@ -39,7 +39,7 @@
                 $contador = 0;
                 if($fila = $eventoM->conexion->obtenerObjeto()){
             ?>
-            <th id="izquierda"><?php echo $fila->nombreEvento; ?></th>
+            <th id="izquierda"><?php echo utf8_encode($fila->nombreEvento); ?></th>
             <th id="derecha"><?php echo $fila->fechaInicial; ?></th>
             <th id="derecha"><?php echo $fila->horaInicial; ?></th>
             <th id="derecha"><?php echo $fila->horaFinal; ?></th>
@@ -64,8 +64,8 @@
                 while($fila = $asistentesM->conexion->obtenerObjeto()){
             ?>
         <tr>
-            <th id="izquierda"><?php echo $fila->nombre; ?></th>
-            <th id="izquierda"><?php echo $fila->apaterno . ' '.$fila->amaterno; ?></th>
+            <th id="izquierda"><?php echo utf8_encode($fila->nombre); ?></th>
+            <th id="izquierda"><?php echo utf8_encode($fila->apaterno . ' '.$fila->amaterno); ?></th>
             <th id="centrado"><?php echo $fila->tipoDocumento; ?></th>
             <th id="derecha"><?php echo $fila->numeroDocumento; ?></th>
             <th id="centrado"><?php echo $fila->estado; ?></th>

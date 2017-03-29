@@ -22,4 +22,19 @@ function crearListado(_asistentes){
     });
     listado = listado + '</table>';
     }
+    $("#btnReporte").click(function(){
+        if(validarVacios() === false){
+            return false;
+        }
+        window.open('../controlador/AsistenciaEventoPdf.php?idEvento='+$("#selEvento").val());
+        
+    });
 });
+function validarVacios(){
+    if(document.getElementById("txtEvento").value === ''){
+        alert("Debe digitar el nombre del evento");
+        document.getElementById("txtEvento").focus();
+        return false;
+    }
+    return true;
+}
